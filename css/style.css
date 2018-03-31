@@ -1,0 +1,100 @@
+/* Help older browsers deal with common HTML5/CSS3 elements. */
+header, section, footer, aside, nav, article figure {
+	display: block;
+}
+
+/* Set up some global rules for the body. A lot of this is made redundant through further CSS, but good foundations are safe. */
+body {
+	max-width: 100%;
+	width: 100%; /* Set the global page width */
+	height: 100%;
+/*	margin: auto; */ /* Autosize margins, centering content */
+	background-color: #4931a8; /* Set background colour to white */
+	color: rgba(0, 0, 0, 0.54); /* Set foreground colour to dark purple */
+	font-family: 'Raleway', sans-serif; /* Sets the font priority for the body */
+	font-size: medium; /* Set base font size */
+	line-height: 200%; /* Sets line spacing to 200% for legibility */
+
+	overflow-x: hidden;
+}
+
+h1 {
+	color: #fff;
+	font-size: 3em;
+}
+
+@keyframes button-appear {
+	0% {
+		transform: scale(100%);
+		-ms-transform: scale(100%);
+		-webkit-transform: scale(100%);
+		-moz-transform: scale(100%);
+		-o-transform: scale(100%);
+	}
+
+	100% {
+		transform: scale(0);
+		-ms-transform: scale(0);
+		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
+		-o-transform: scale(0);
+	}
+}
+
+.button h1 {
+	text-align: center;
+	line-height: 350px;
+
+	-webkit-user-select: none;  
+	-moz-user-select: none;    
+	-ms-user-select: none;      
+	-o-user-select: none;      
+	user-select: none;
+}
+
+.button {
+	position: fixed;
+	top: 50%;
+
+	width: 400px;
+	height: 400px;
+	background-color: #807efb;
+	color: #807efb;
+	border-radius: 100%;
+
+	margin-top: -200px;
+
+	box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+
+	animation-name: button-appear;
+	animation-duration: .6s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.button:hover {
+	background-color: #48cdd2;
+}
+
+.button:active {
+	background-color: #48cdd2;
+	box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+	transform: translate(2px,2px);
+}
+
+#left-button {
+	margin-left: 10%;
+
+}
+
+#middle-button {
+	margin-left: 40%;
+}
+
+#right-button {
+	margin-left: 70%;
+
+}
+
