@@ -20,4 +20,11 @@
 	position: fixed;
 	left: 200px;
 	width: 100%;
+	
+	border-left: 4px solid rgba(107, 223, 165, 1);
+	padding-right: 4px;
+}
+
+#when-nav:hover {
+	background-color: rgba(223, 90, 73, 1);
 }

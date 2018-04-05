@@ -4,6 +4,13 @@
 	position: fixed;
 	left: 0;
 	width: 100%;
+	
+	border-left: 4px solid rgba(115, 131, 239, 1);
+	padding-right: 4px;
+}
+
+#then-nav:hover {
+	background-color: rgba(239, 201, 76, 1);
 }
 
 #now-nav {
