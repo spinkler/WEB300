@@ -16,17 +16,47 @@
     </style>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/when-nav.css">
+
 
     <!-- HTML5 Shiv below allows styling of HTML5 elements in old versions of IE -->
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
+	<script src="jquery.js"></script>
+	<script>
+		$(function(){
+			$("#includedContent").load("content/when-content.html");
+		});
+	</script>
   </head>
 
   <body id="when">
-    <h1>When..?</h1>
-    <article></article>
+  
+  	<nav>
+  		<a href="then.html">
+  			<div id="then-nav" class="nav-div">
+  				<img src="img/circle-arrow.svg" />
+  			</div>
+  		</a>
+  		
+		<a href="now.html">
+			<div id="now-nav" class="nav-div">
+				<img src="img/circle.svg" />
+			</div>
+		</a>
+  		
+		<div id="when-nav" class="nav-div">
+			<img class="flipx" src="img/circle-arrow.svg" />
+			<h1>When..?</h1>
+		</div>
+  	</nav>
+  	
+    <article>
+    	<div id="includedContent"></div>
+    </article>
+    
   </body>
 
 </html>
