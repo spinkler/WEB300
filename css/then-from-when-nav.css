@@ -1,0 +1,30 @@
+#then-nav {
+	background-color: rgba(239, 201, 76, 1);
+	
+	position: fixed;
+	left: 0;
+	width: 100%;
+	
+	border-left: 4px solid rgba(115, 131, 239, 1);
+	padding-right: 4px;
+}
+
+#then-nav:hover {
+	background-color: rgba(239, 201, 76, 1);
+}
+
+#now-nav {
+	background-color: rgba(226, 122, 63, 1);
+	
+	position: fixed;
+	right: 100px;
+	width: 100px;
+}
+
+#when-nav {
+	background-color: rgba(223, 90, 73, 1);
+	
+	position: fixed;
+	right: 0;
+	width: 100px;
+}

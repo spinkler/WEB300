@@ -8,7 +8,7 @@
     <meta name="keywords" content="digitisation,convergence">
     <meta name="author" content="Ty Scicluna">
 
-    <title></title>
+    <title id="referrer"></title>
 
     <!-- This loads the relevant fonts via googleapis.com -->
     <style>
@@ -24,11 +24,23 @@
     <![endif]-->
     
 	<script src="jquery.js"></script>
+	
 	<script>
 		$(function(){
 			$("#includedContent").load("content/then-content.html");
 		});
 	</script>
+
+	<script>
+		if (document.referrer.endsWith("now.html")) {
+			document.getElementById("referrer").innerHTML = "Referred from Now";
+		} else if (document.referrer.endsWith("when.html")) {
+			document.getElementById("referrer").innerHTML = "Referred from When";
+		} else {
+			document.getElementById("referrer").innerHTML = "Referred from Elsewhere";
+		}
+	</script>
+  
   </head>
 
   <body id="then">
@@ -51,11 +63,10 @@
   			</div>
   		</a>
   	</nav>
-  
+  	  	
     <article>
     	<div id="includedContent"></div>
     </article>
-    
   </body>
-
+  
 </html>
