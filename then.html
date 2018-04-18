@@ -8,15 +8,18 @@
     <meta name="keywords" content="digitisation,convergence">
     <meta name="author" content="Ty Scicluna">
 
-    <title id="referrer"></title>
+    <title></title>
 
     <!-- This loads the relevant fonts via googleapis.com -->
     <style>
         @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
     </style>
 
+    <link rel="preload" type="text/css" href="css/style.css" as="style">
+    <link rel="preload" type="text/css" id="style_overrides_preload" as="style">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/then-nav.css">
+    <link rel="stylesheet" type="text/css" id="style_overrides">
 
     <!-- HTML5 Shiv below allows styling of HTML5 elements in old versions of IE -->
     <!--[if lt IE 9]>
@@ -33,40 +36,19 @@
 
 	<script>
 		if (document.referrer.endsWith("now.html")) {
-			document.getElementById("referrer").innerHTML = "Referred from Now";
+			document.getElementById("style_overrides_preload").href = "css/then-from-now-nav.css";
+			document.getElementById("style_overrides").href = "css/then-from-now-nav.css";
 		} else if (document.referrer.endsWith("when.html")) {
-			document.getElementById("referrer").innerHTML = "Referred from When";
+			document.getElementById("style_overrides_preload").href = "css/then-from-when-nav.css";
+			document.getElementById("style_overrides").href = "css/then-from-when-nav.css";
 		} else {
-			document.getElementById("referrer").innerHTML = "Referred from Elsewhere";
+			document.getElementById("style_overrides_preload").href = "css/then-nav.css";
+			document.getElementById("style_overrides").href = "css/then-nav.css";
 		}
 	</script>
   
   </head>
 
-  <body id="then">
-  
-  	<nav>
-  		<div id="then-nav" class="nav-div">
-  			<img src="img/circle-arrow.svg" />
-  			<h1>Then</h1>
-  		</div>
-  		
-  		<a href="now.html">
-  			<div id="now-nav" class="nav-div">
-  				<img src="img/circle.svg" />
-  			</div>
-  		</a>
-  		
-  		<a href="when.html">
-  			<div id="when-nav" class="nav-div">
-  				<img class="flipx" src="img/circle-arrow.svg" />
-  			</div>
-  		</a>
-  	</nav>
-  	  	
-    <article>
-    	<div id="includedContent"></div>
-    </article>
-  </body>
+
   
 </html>

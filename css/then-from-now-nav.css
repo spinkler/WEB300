@@ -1,12 +1,65 @@
+@keyframes page-load {
+	0% {
+		left: calc(100% - 200px);
+		border-left: 0px solid rgba(97, 226, 224, 1);
+	}
+	
+	75% {
+		border-left: 0px solid rgba(97, 226, 224, 1);
+	}
+	
+	100% {
+		left: 100px;
+		border-left: 4px solid rgba(97, 226, 224, 1);
+	}
+}
+
+@keyframes border-fade {
+	75% {
+		border-left: 4px solid rgba(115, 131, 239, 1);
+		padding-left: 0px;
+	}
+	
+	100% {
+		border-left: 0px solid rgba(115, 131, 239, 1);
+		padding-left: 4px;
+	}
+}
+
+@keyframes background-transition {
+	0% {
+		background-color: rgba(244, 219, 135, 1);
+	}
+	
+	100% {
+		background-color: rgba(236, 166, 126, 1);
+	}
+}
+
+#then {
+	animation-name: background-transition;
+	animation-duration: .9s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
 #then-nav {
 	background-color: rgba(239, 201, 76, 1);
 	
 	position: fixed;
 	left: 0;
-	width: 100%;
 	
 	border-left: 4px solid rgba(115, 131, 239, 1);
 	padding-right: 4px;
+				
+	animation-name: border-fade;
+	animation-duration: .9s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
 }
 
 #then-nav:hover {
@@ -17,14 +70,19 @@
 	background-color: rgba(226, 122, 63, 1);
 	
 	position: fixed;
-	right: 100px;
-	width: 100px;
+	left: calc(100% - 200px);
+	
+	animation-name: page-load;
+	animation-duration: .9s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
 }
 
 #when-nav {
 	background-color: rgba(223, 90, 73, 1);
 	
 	position: fixed;
-	right: 0;
-	width: 100px;
+	left: calc(100% - 100px);
 }

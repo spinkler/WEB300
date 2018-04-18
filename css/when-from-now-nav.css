@@ -1,9 +1,58 @@
+@keyframes page-load {
+	0% {
+		left: 200px;
+		border-left: 4px solid rgba(107, 223, 165, 1);
+		padding-left: 0px;
+	}
+	
+	75% {
+		border-left: 4px solid rgba(107, 223, 165, 1);
+		padding-left: 0px;
+	}
+	
+	100% {
+		left: calc(100% - 100px);
+		border-left: 0px solid rgba(107, 223, 165, 1);
+		padding-left: 4px;
+	}
+}
+
+@keyframes border-fade {
+	75% {
+		border-left: 0px solid rgba(97, 226, 224, 1);
+		padding-left; 4px;
+	}
+	
+	100% {
+		border-left: 4px solid rgba(97, 226, 224, 1);
+		padding-left: 0px;
+	}
+}
+
+@keyframes background-transition {
+	0% {
+		background-color: rgba(234, 144, 133, 1);
+	}
+	
+	100% {
+		background-color: rgba(236, 166, 126, 1);
+	}
+}
+
+#when {
+	animation-name: background-transition;
+	animation-duration: .9s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
 #then-nav {
 	background-color: rgba(239, 201, 76, 1);
 	
 	position: fixed;
 	left: 0;
-	width: 100px;
 }
 
 #now-nav {
@@ -11,7 +60,17 @@
 	
 	position: fixed;
 	left: 100px;
-	width: 100px;
+	
+	border-left: 4px solid rgba(97, 226, 224, 0);
+	padding-right: 4px;
+
+	
+	animation-name: border-fade;
+	animation-duration: .9s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
 }
 
 #when-nav {
@@ -19,10 +78,17 @@
 	
 	position: fixed;
 	left: 200px;
-	width: 100%;
 	
 	border-left: 4px solid rgba(107, 223, 165, 1);
 	padding-right: 4px;
+	margin-left: 4px;
+	
+	animation-name: page-load;
+	animation-duration: .9s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
 }
 
 #when-nav:hover {

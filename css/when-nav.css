@@ -3,7 +3,6 @@
 	
 	position: fixed;
 	left: 0;
-	width: 100px;
 }
 
 #now-nav {
@@ -11,7 +10,6 @@
 	
 	position: fixed;
 	left: 100px;
-	width: 100px;
 }
 
 #when-nav {
@@ -19,7 +17,6 @@
 	
 	position: fixed;
 	left: 200px;
-	width: 100%;
 	
 	border-left: 4px solid rgba(107, 223, 165, 1);
 	padding-right: 4px;

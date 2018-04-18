@@ -3,7 +3,8 @@
 	
 	position: fixed;
 	left: 0;
-	width: 100px;
+	
+	z-index: 0;
 }
 
 #now-nav {
@@ -11,7 +12,8 @@
 	
 	position: fixed;
 	left: 100px;
-	width: 100%;
+	
+	z-index: 1;
 	
 	border-left: 4px solid rgba(97, 226, 224, 1);
 	padding-right: 4px;
@@ -25,6 +27,7 @@
 	background-color: rgba(223, 90, 73, 1);
 	
 	position: fixed;
-	right: 0;
-	width: 100px;
+	left: calc(100% - 100px);
+	
+	z-index: 2;
 }

@@ -22,29 +22,131 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
+    <script src="jquery.js"></script>
+    <script src="handlebars.js"></script>
+    <script src="script.js"></script>
+	
+	<script>
+		/* $(function(){
+			$("#includedContent").load("content/then-content.html");
+		}); */
+	</script>
+    
   </head>
 
   <body>
-  	<h1>Welcome!</h1>
-  
-    <a href="then.html">
-      <div class="button" id="left-button">
-      	<h2>Then</h2>
-      	<img class="background-svg" src="img/circle-arrow.svg" />
-      </div>
-    </a>
-    <a href="now.html">
-      <div class="button" id="middle-button">
-      	<h2>Now</h2>
-      	<img class="background-svg" src="img/circle.svg" />
-      </div>
-    </a>  
-    <a href="when.html">
-      <div class="button" id="right-button">
-      	<h2>When..?</h2>
-      	<img class="background-svg flipx" src="img/circle-arrow.svg" />
-      </div>
-    </a>
+    <div class="mainContent">
+
+	  <!--  INDEX  -->
+	  <div id="index" class="page hidden">
+	  	<h1>Welcome!</h1>
+	  
+	    <a href="#then">
+	      <div class="button" id="left-button">
+	      	<h2>Then</h2>
+	      	<img class="background-svg" src="img/circle-arrow.svg" />
+	      </div>
+	    </a>
+	    <a href="#now">
+	      <div class="button" id="middle-button">
+	      	<h2>Now</h2>
+	      	<img class="background-svg" src="img/circle.svg" />
+	      </div>
+	    </a>  
+	    <a href="#when">
+	      <div class="button" id="right-button">
+	      	<h2>When..?</h2>
+	      	<img class="background-svg flipx" src="img/circle-arrow.svg" />
+	      </div>
+	    </a>
+	  </div>
+	
+	  <!--  THEN  -->
+	  <div id="then" class="page hidden">
+	   	<nav>
+	  		<div class="nav-div then-nav">
+	  			<img src="img/circle-arrow.svg" />
+	  			<h1>Then</h1>
+	  		</div>
+	  		
+	  		<a href="#now">
+	  			<div class="nav-div now-nav">
+	  				<img src="img/circle.svg" />
+	  				<h1>Now</h1>
+	  			</div>
+	  		</a>
+	  		
+	  		<a href="#when">
+	  			<div class="nav-div when-nav">
+	  				<img class="flipx" src="img/circle-arrow.svg" />
+	  				<h1>When..?</h1>
+	  			</div>
+	  		</a>
+	  	</nav>
+	  	  	
+	    <article>
+	    	<div id="thenContent"></div>
+	    </article>
+	  </div>
+	
+	  <!--  NOW  -->
+	  <div id="now" class="page hidden">
+	  	<nav>
+	  		<a href="#then">
+	  			<div class="nav-div then-nav">
+	  				<img src="img/circle-arrow.svg" />
+	  				<h1>Then</h1>
+	  			</div>
+	  		</a>
+	  		
+			<div class="nav-div now-nav">
+				<img src="img/circle.svg" />
+				<h1>Now</h1>
+			</div>
+	  		
+	  		<a href="#when">
+	  			<div class="nav-div when-nav">
+	  				<img class="flipx" src="img/circle-arrow.svg" />
+	  				<h1>When..?</h1>
+	  			</div>
+	  		</a>
+	  	</nav>
+	  	
+	    <article>
+	    	<div id="nowContent"></div>
+	    </article>
+	  </div>
+	
+	  <!--  WHEN..?  -->
+	  <div id="when" class="page hidden">
+	  	<nav>
+	  		<a href="#then">
+	  			<div class="nav-div then-nav">
+	  				<img src="img/circle-arrow.svg" />
+	  				<h1>Then</h1>
+	  			</div>
+	  		</a>
+	  		
+			<a href="#now">
+				<div class="nav-div now-nav">
+					<img src="img/circle.svg" />
+					<h1>Now</h1>
+				</div>
+			</a>
+	  		
+			<div class="nav-div when-nav">
+				<img class="flipx" src="img/circle-arrow.svg" />
+				<h1>When..?</h1>
+			</div>
+	  	</nav>
+	  	
+	    <article>
+	    	<div id="whenContent"></div>
+	    </article>
+	  </div>
+	  
+    </div>
+    
   </body>
 
 </html>

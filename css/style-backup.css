@@ -8,7 +8,7 @@ html {
 }
 
 /* Set up some global rules for the body. A lot of this is made redundant through further CSS, but good foundations are safe. */
-body, .page {
+body {
 	position: fixed;
 	
 	max-width: 100%;
@@ -176,7 +176,7 @@ article {
 	left: 0;
 }
 
-#left-button:hover, .then-nav:hover {
+#left-button:hover, #then-nav:hover {
 	/* background-color: rgba(239, 201, 76, 0.75); */
 	background-color: rgba(243, 215, 121, 1);
 }
@@ -189,7 +189,7 @@ article {
 	width: 33.34%;
 }
 
-#middle-button:hover, .now-nav:hover {
+#middle-button:hover, #now-nav:hover {
 	/* background-color: rgba(226, 122, 63, 0.75); */
 	background-color: rgba(233, 155, 111, 1);
 }
@@ -200,7 +200,7 @@ article {
 	right: 0;
 }
 
-#right-button:hover, .when-nav:hover {
+#right-button:hover, #when-nav:hover {
 	/* background-color: rgba(223, 90, 73, 0.75); */
 	background-color: rgba(231, 131, 119, 1);
 }

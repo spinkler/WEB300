@@ -15,8 +15,11 @@
         @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
     </style>
 
+    <link rel="preload" type="text/css" href="css/style.css" as="style">
+    <link rel="preload" type="text/css" id="style_overrides_preload" as="style">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/now-nav.css">
+    <link rel="stylesheet" type="text/css" id="style_overrides">
 
     <!-- HTML5 Shiv below allows styling of HTML5 elements in old versions of IE -->
     <!--[if lt IE 9]>
@@ -33,41 +36,19 @@
 
 	<script>
 		if (document.referrer.endsWith("then.html")) {
-			document.getElementById("referrer").innerHTML = "Referred from Then";
+			document.getElementById("style_overrides_preload").href = "css/now-from-then-nav.css";
+			document.getElementById("style_overrides").href = "css/now-from-then-nav.css";
 		} else if (document.referrer.endsWith("when.html")) {
-			document.getElementById("referrer").innerHTML = "Referred from When";
+			document.getElementById("style_overrides_preload").href = "css/now-from-when-nav.css";
+			document.getElementById("style_overrides").href = "css/now-from-when-nav.css";
 		} else {
-			document.getElementById("referrer").innerHTML = "Referred from Elsewhere";  		
+			document.getElementById("style_overrides_preload").href = "css/now-nav.css";
+			document.getElementById("style_overrides").href = "css/now-nav.css";
 		}
 	</script>
 	
   </head>
 
-  <body id="now">
 
-  	<nav>
-  		<a href="then.html">
-  			<div id="then-nav" class="nav-div">
-  				<img src="img/circle-arrow.svg" />
-  			</div>
-  		</a>
-  		
-		<div id="now-nav" class="nav-div">
-			<img src="img/circle.svg" />
-			<h1>Now</h1>
-		</div>
-  		
-  		<a href="when.html">
-  			<div id="when-nav" class="nav-div">
-  				<img class="flipx" src="img/circle-arrow.svg" />
-  			</div>
-  		</a>
-  	</nav>
-  	
-    <article>
-    	<div id="includedContent"></div>
-    </article>
-    
-  </body>
 
 </html>
