@@ -73,6 +73,49 @@ nav h1 {
 	padding-left: 10px;
 }
 
+.subnav {
+	position: inherit;
+	display: inline-block;
+
+	z-index: 0;
+}
+
+.subnav li {
+	background-color: rgba(255, 255, 255, 0.7);
+	position: relative;
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
+	top: 25px;
+	padding-top: 20px;
+	color: #fff;
+}
+
+#then .subnav {
+	left: -39px;
+}
+
+#then .subnav li {
+	background-color: rgba(115, 131, 239, 1);
+}
+
+#now .subnav {
+	left: 64px;
+}
+
+#now .subnav li {
+	background-color: rgba(97, 226, 224, 1);
+}
+
+#when .subnav {
+	left: 168px;
+}
+
+#when .subnav li {
+	background-color: rgba(107, 223, 165, 1);
+}
+
 h1 {
 	color: #334d5c;
 	font-size: 4em;
@@ -96,12 +139,12 @@ article {
 
 	position: relative;
 	margin: 0 auto;
-	top: 125px;
+	top: 150px;
 	padding: 0 15px;
 
 	display: block;
 	width: 70vw;
-	height: calc(95vh - 125px);
+	height: calc(95vh - 150px);
 	overflow-y: scroll;
 }
 
@@ -396,6 +439,17 @@ article .content {
 	-webkit-animation-timing-function: ease-in-out;
 }
 
+/* SUBNAV MOVEMENT */
+.subnav-animation {
+	animation-name: subnav;
+	animation-delay: .9s;
+	animation-duration: .4s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
 /* ANIMATIONS - KEYFRAMES */
 
 /* NAVBAR KEYFRAMES */
@@ -552,5 +606,16 @@ article .content {
 	
 	100% {
 		color: rgba(0, 0, 0, 0.54);
+	}
+}
+
+/* SUBNAV KEYFRAMES */
+@keyframes subnav {
+	0% {
+		top: 25px;
+	}
+	
+	100% {
+		top: 65px;
 	}
 }

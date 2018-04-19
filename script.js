@@ -4,7 +4,7 @@ $(function () {
     $(window).on('hashchange', function(){
         // On every hash change the render function is called with the new hash.
         // This is how the navigation of our app happens.
-    	render(decodeURI(window.location.hash));        
+    	render(decodeURI(window.location.hash));
     });
     
     function render(url) {
@@ -55,12 +55,11 @@ $(function () {
         else {
             // renderErrorPage();
         }
-        
     }
     
     function renderPage(target) {
         var page = $('#' + target);
-        
+
         $(".content").removeClass("content-fade");
         
         // Remove animation classes before rendering
@@ -85,24 +84,29 @@ $(function () {
 		$(".when-nav").removeClass("when-from-then");
 		$(".now-nav").removeClass("when-from-then2");
 		$("#when").removeClass("when-from-then-background");
+		
+        $("#then .subnav>ul>li").removeClass("subnav-animation");
+        $("#now .subnav>ul>li").removeClass("subnav-animation");
+        $("#when .subnav>ul>li").removeClass("subnav-animation");
         
         page.removeClass('hidden');
         
         if (target.endsWith("then")) {
+            $("#then .subnav>ul>li").addClass("subnav-animation");
         	
         	// Apply styles to "then" navigation bar        	
         	$(".then-nav").attr("style",
     				"background-color: rgba(239, 201, 76, 1);" +
     				"position: fixed;" +
     				"left: 0;" +
-    				"z-index: 0;" +
+    				"z-index: 5;" +
     				"border-left: 4px solid rgba(115, 131, 239, 1);"
     		);
     		$(".now-nav").attr("style",
     				"background-color: rgba(226, 122, 63, 1);" +
     				"position: fixed;" +
     				"left: calc(100vw - 208px);" +
-    				"z-index: 1;" +
+    				"z-index: 6;" +
     				"border-left: 4px solid rgba(97, 226, 224, 0);" +
     				"margin-left: 4px;"
     		);
@@ -110,7 +114,7 @@ $(function () {
     				"background-color: rgba(223, 90, 73, 1);" +
     				"position: fixed;" +
     				"left: calc(100vw - 100px);" +
-    				"z-index: 2;" +
+    				"z-index: 7;" +
     				"border-left: 4px solid rgba(107, 223, 165, 0);" +
     				"margin-left: 8px;"
     		);
@@ -139,20 +143,21 @@ $(function () {
         	}
         	
         } else if (target.endsWith("now")) {
+            $("#now .subnav>ul>li").addClass("subnav-animation");
         	
         	// Apply styles to "now" navigation bar      	
         	$(".then-nav").attr("style",
     				"background-color: rgba(239, 201, 76, 1);" +
     				"position: fixed;" +
     				"left: 0;" +
-    				"z-index: 0;" +
+    				"z-index: 5;" +
     				"border-left: 4px solid rgba(115, 131, 239, 0);"
     		);
     		$(".now-nav").attr("style",
     				"background-color: rgba(226, 122, 63, 1);" +
     				"position: fixed;" +
     				"left: 100px;" +
-    				"z-index: 1;" +
+    				"z-index: 6;" +
     				"border-left: 4px solid rgba(97, 226, 224, 1);" +
     				"margin-left: 4px;"
     		);
@@ -160,7 +165,7 @@ $(function () {
     				"background-color: rgba(223, 90, 73, 1);" +
     				"position: fixed;" +
     				"left: calc(100vw - 100px);" +
-    				"z-index: 2;" +
+    				"z-index: 7;" +
     				"border-left: 4px solid rgba(107, 223, 165, 0);" +
     				"margin-left: 8px;"
     		);
@@ -187,18 +192,21 @@ $(function () {
         	}
         	
         } else if (target.endsWith("when")) {
+            $("#when .subnav>ul>li").addClass("subnav-animation");
 
         	// Apply styles to "when" navigation bar
         	$(".then-nav").attr("style",
     				"background-color: rgba(239, 201, 76, 1);" +
     				"position: fixed;" +
     				"left: 0;" +
+    				"z-index: 5;" +
     				"border-left: 4px solid rgba(115, 131, 239, 0);"
     		);
     		$(".now-nav").attr("style",
     				"background-color: rgba(226, 122, 63, 1);" +
     				"position: fixed;" +
     				"left: 100px;" +
+    				"z-index: 6;" +
     				"border-left: 4px solid rgba(97, 226, 224, 0);" +
     				"margin-left: 4px;"
     		);
@@ -206,6 +214,7 @@ $(function () {
     				"background-color: rgba(223, 90, 73, 1);" +
     				"position: fixed;" +
     				"left: 200px;" +
+    				"z-index: 7;" +
     				"border-left: 4px solid rgba(107, 223, 165, 1);" +
     				"margin-left: 8px;"
     		);
