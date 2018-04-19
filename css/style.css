@@ -4,21 +4,21 @@ header, section, footer, aside, nav, article figure {
 }
 
 html {
-	height: 100%;
+	height: 100vh;
 }
 
 /* Set up some global rules for the body. A lot of this is made redundant through further CSS, but good foundations are safe. */
 body, .page {
 	position: fixed;
 	
-	max-width: 100%;
-	min-height: 100%;
+	max-width: 100vw;
+	min-height: 100vh;
 	
-	width: 100%; /* Set the global page width */
-	height: 100%;
+	width: 100vw; /* Set the global page width */
+	/* height: 100vh; // This was creating a vertical page that was too long - scrollbars */
 	margin: 0;
 	background-color: #fff; /* Set background colour to white */
-	color: rgba(0, 0, 0, 0.54); /* Set foreground colour to dark purple */
+	color: rgba(0, 0, 0, 0.54);
 	font-family: 'Raleway', sans-serif; /* Sets the font priority for the body */
 	font-size: medium; /* Set base font size */
 	line-height: 200%; /* Sets line spacing to 200% for legibility */
@@ -70,6 +70,7 @@ nav h1 {
 	height: 100px;
 
 	color: #fff;
+	padding-left: 10px;
 }
 
 h1 {
@@ -82,17 +83,31 @@ h2 {
 	font-size: 4em;
 }
 
+.content h2 {
+	color: rgba(0, 0, 0, 0.34);
+	line-height: 1em;
+	margin: 20px;
+}
+
 article {
 	background-color: rgba(255, 255, 255, 0.7);
 	border-radius: 4px;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
 
-	margin: 125px auto;
+	position: relative;
+	margin: 0 auto;
+	top: 125px;
 	padding: 0 15px;
 
-	display: table;
-	width: 70%;
-	height: 75%;
+	display: block;
+	width: 70vw;
+	height: calc(95vh - 125px);
+	overflow-y: scroll;
+}
+
+article .content {
+	height: inherit;
+	display: table-cell;
 }
 
 .nav-div {
@@ -143,7 +158,9 @@ article {
 
 .button h2 {
 	display: table-cell;
+	width: 33.34vw;
 	vertical-align: middle;
+	text-align: center;
 
 	-webkit-user-select: none;  
 	-moz-user-select: none;    
@@ -152,14 +169,20 @@ article {
 	user-select: none;
 }
 
-.button {
+#index-button-container {
 	display: table;
+	width:  100vw;
+}
+
+.button {
+	display: table-cell;
 	position: fixed;
 	bottom: 0;
 
-	width: 33.34%;
-	height: 50%;
+	width: 33.34vw;
+	height: 50vh;
 
+	line-height: 50vh;
 	text-align: center;
 
 	animation-name: button-appear;
@@ -176,9 +199,9 @@ article {
 	left: 0;
 }
 
-#left-button:hover, .then-nav:hover {
+#left-button:hover, .then-nav-hover:hover {
 	/* background-color: rgba(239, 201, 76, 0.75); */
-	background-color: rgba(243, 215, 121, 1);
+	background-color: rgba(243, 215, 121, 1) !important;
 }
 
 #middle-button {
@@ -189,9 +212,9 @@ article {
 	width: 33.34%;
 }
 
-#middle-button:hover, .now-nav:hover {
+#middle-button:hover, .now-nav-hover:hover {
 	/* background-color: rgba(226, 122, 63, 0.75); */
-	background-color: rgba(233, 155, 111, 1);
+	background-color: rgba(233, 155, 111, 1) !important;
 }
 
 #right-button {
@@ -200,12 +223,334 @@ article {
 	right: 0;
 }
 
-#right-button:hover, .when-nav:hover {
+#right-button:hover, .when-nav-hover:hover {
 	/* background-color: rgba(223, 90, 73, 0.75); */
-	background-color: rgba(231, 131, 119, 1);
+	background-color: rgba(231, 131, 119, 1) !important;
 }
-
 
 .hidden {
 	visibility: hidden;
+}
+
+
+/* Style Scrollbars */
+::-webkit-scrollbar {
+}  /* this targets the default scrollbar (compulsory) */
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: inherit;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: inherit;
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+
+
+
+/* ANIMATIONS - STYLES */
+
+/* NAVBARS */
+.then-from-now {
+	animation-name: then-from-now;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.then-from-when {
+	animation-name: then-from-when;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.then-from-when2 {
+	animation-name: then-from-when2;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.now-from-then {
+	animation-name: now-from-then;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.now-from-when {
+	animation-name: now-from-when;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.when-from-now {
+	animation-name: when-from-now;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.when-from-then {
+	animation-name: when-from-then;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.when-from-then2 {
+	animation-name: when-from-then2;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+/* BACKGROUND TRANSITIONS */
+.then-from-now-background {
+	animation-name: then-from-now-background;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.then-from-when-background {
+	animation-name: then-from-when-background;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.now-from-then-background {
+	animation-name: now-from-then-background;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.now-from-when-background {
+	animation-name: now-from-when-background;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.when-from-now-background {
+	animation-name: when-from-now-background;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+.when-from-then-background {
+	animation-name: when-from-then-background;
+	animation-duration: .8s;
+	animation-iteration-count: 1;
+	animation-direction: reverse;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+/* CONTENT FADING */
+.content-fade {
+	animation-name: content-fade;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+/* ANIMATIONS - KEYFRAMES */
+
+/* NAVBAR KEYFRAMES */
+@keyframes then-from-now {
+	0% {
+		left: calc(100vw - 208px);
+	}
+
+	100% {
+		left: 100px;
+	}
+}
+
+@keyframes then-from-when {
+	0% {
+		left: calc(100vw - 100px);
+	}
+
+	100% {
+		left: 200px;
+	}
+}
+
+@keyframes then-from-when2 {
+	0% {
+		left: calc(100vw - 208px);
+	}
+
+	100% {
+		left: 100px;
+	}
+}
+
+@keyframes now-from-then {
+	0% {
+		left: 100px;
+	}
+
+	100% {		
+		left: calc(100vw - 208px);
+	}
+}
+
+@keyframes now-from-when {
+	0% {
+		left: calc(100vw - 100px);
+	}
+	
+	100% {
+		left: 200px;
+	}
+}
+
+@keyframes when-from-now {
+	0% {
+		left: 200px;
+	}
+
+	100% {
+		left: calc(100vw - 100px);
+	}
+}
+
+@keyframes when-from-then {
+	0% {
+		left: 200px;
+	}
+
+	100% {
+		left: calc(100vw - 100px);
+	}
+}
+
+@keyframes when-from-then2 {
+	0% {
+		left: 100px;
+	}
+
+	100% {
+		left: calc(100vw - 208px);
+	}
+}
+
+/* BACKGROUND TRANSITIONS */
+@keyframes then-from-now-background {
+	0% {
+		background-color: rgba(244, 219, 135, 1);
+	}
+	
+	100% {
+		background-color: rgba(236, 166, 126, 1);
+	}
+}
+
+@keyframes then-from-when-background {
+	0% {
+		background-color: rgba(244, 219, 135, 1);
+	}
+	
+	100% {
+		background-color: rgba(234, 144, 133, 1);
+	}
+}
+
+@keyframes now-from-then-background {
+	0% {
+		background-color: rgba(236, 166, 126, 1);
+	}
+	
+	100% {
+		background-color: rgba(244, 219, 135, 1);
+	}
+}
+
+@keyframes now-from-when-background {
+	0% {
+		background-color: rgba(236, 166, 126, 1);
+	}
+	
+	100% {
+		background-color: rgba(234, 144, 133, 1);
+	}
+}
+
+@keyframes when-from-now-background {
+	0% {
+		background-color: rgba(234, 144, 133, 1);
+	}
+	
+	100% {
+		background-color: rgba(236, 166, 126, 1);
+	}
+}
+
+@keyframes when-from-then-background {
+	0% {
+		background-color: rgba(234, 144, 133, 1);
+	}
+	
+	100% {
+		background-color: rgba(244, 219, 135, 1);
+	}
+}
+
+/* CONTENT FADING */
+@keyframes content-fade {
+	0% {
+		color: rgba(0, 0, 0, 0.54);
+	}
+	
+	50% {
+		color: rgba(0, 0, 0, 0);
+	}
+	
+	100% {
+		color: rgba(0, 0, 0, 0.54);
+	}
 }

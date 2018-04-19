@@ -25,12 +25,6 @@
     <script src="jquery.js"></script>
     <script src="handlebars.js"></script>
     <script src="script.js"></script>
-	
-	<script>
-		/* $(function(){
-			$("#includedContent").load("content/then-content.html");
-		}); */
-	</script>
     
   </head>
 
@@ -41,24 +35,26 @@
 	  <div id="index" class="page hidden">
 	  	<h1>Welcome!</h1>
 	  
-	    <a href="#then">
-	      <div class="button" id="left-button">
-	      	<h2>Then</h2>
-	      	<img class="background-svg" src="img/circle-arrow.svg" />
-	      </div>
-	    </a>
-	    <a href="#now">
-	      <div class="button" id="middle-button">
-	      	<h2>Now</h2>
-	      	<img class="background-svg" src="img/circle.svg" />
-	      </div>
-	    </a>  
-	    <a href="#when">
-	      <div class="button" id="right-button">
-	      	<h2>When..?</h2>
-	      	<img class="background-svg flipx" src="img/circle-arrow.svg" />
-	      </div>
-	    </a>
+	  	<div id="index-button-container">
+		    <a href="#then">
+		      <div class="button" id="left-button">
+		      	<h2>Then</h2>
+		      	<img class="background-svg" src="img/circle-arrow.svg" />
+		      </div>
+		    </a>
+		    <a href="#now">
+		      <div class="button" id="middle-button">
+		      	<h2>Now</h2>
+		      	<img class="background-svg" src="img/circle.svg" />
+		      </div>
+		    </a>  
+		    <a href="#when">
+		      <div class="button" id="right-button">
+		      	<h2>When..?</h2>
+		      	<img class="background-svg flipx" src="img/circle-arrow.svg" />
+		      </div>
+		    </a>
+	    </div>
 	  </div>
 	
 	  <!--  THEN  -->
@@ -85,7 +81,7 @@
 	  	</nav>
 	  	  	
 	    <article>
-	    	<div id="thenContent"></div>
+	    	<div id="thenContent" class="content"></div>
 	    </article>
 	  </div>
 	
@@ -113,7 +109,7 @@
 	  	</nav>
 	  	
 	    <article>
-	    	<div id="nowContent"></div>
+	    	<div id="nowContent" class="content"></div>
 	    </article>
 	  </div>
 	
@@ -141,7 +137,7 @@
 	  	</nav>
 	  	
 	    <article>
-	    	<div id="whenContent"></div>
+	    	<div id="whenContent" class="content"></div>
 	    </article>
 	  </div>
 	  

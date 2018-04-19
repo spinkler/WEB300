@@ -61,53 +61,92 @@ $(function () {
     function renderPage(target) {
         var page = $('#' + target);
         
-        /* Here we want a function to unload the content from previous pages, I think */
+        $(".content").removeClass("content-fade");
+        
+        // Remove animation classes before rendering
+        // so that new animations can work correctly
+		$(".now-nav").removeClass("then-from-now");
+		$("#then").removeClass("then-from-now-background");
+		$(".then-nav").removeClass("then-from-now-border-fade");
+		
+		$(".when-nav").removeClass("then-from-when");
+		$(".now-nav").removeClass("then-from-when2");
+		$("#then").removeClass("then-from-when-background");
+		
+		$(".now-nav").removeClass("now-from-then");
+		$("#now").removeClass("now-from-then-background");
+		
+		$(".when-nav").removeClass("now-from-when");
+		$("#now").removeClass("now-from-when-background");
+		
+		$(".when-nav").removeClass("when-from-now");
+		$("#when").removeClass("when-from-now-background");
+		
+		$(".when-nav").removeClass("when-from-then");
+		$(".now-nav").removeClass("when-from-then2");
+		$("#when").removeClass("when-from-then-background");
         
         page.removeClass('hidden');
         
         if (target.endsWith("then")) {
         	
-        	// Apply styles to "then" page        	
+        	// Apply styles to "then" navigation bar        	
         	$(".then-nav").attr("style",
     				"background-color: rgba(239, 201, 76, 1);" +
     				"position: fixed;" +
     				"left: 0;" +
     				"z-index: 0;" +
-    				"border-left: 4px solid rgba(115, 131, 239, 1);" +
-    				"padding-right: 4px;"
+    				"border-left: 4px solid rgba(115, 131, 239, 1);"
     		);
     		$(".now-nav").attr("style",
     				"background-color: rgba(226, 122, 63, 1);" +
     				"position: fixed;" +
-    				"left: calc(100vw - 200px);" +
-    				"z-index: 1;"
+    				"left: calc(100vw - 208px);" +
+    				"z-index: 1;" +
+    				"border-left: 4px solid rgba(97, 226, 224, 0);" +
+    				"margin-left: 4px;"
     		);
     		$(".when-nav").attr("style",
     				"background-color: rgba(223, 90, 73, 1);" +
     				"position: fixed;" +
     				"left: calc(100vw - 100px);" +
-    				"z-index: 2;"
+    				"z-index: 2;" +
+    				"border-left: 4px solid rgba(107, 223, 165, 0);" +
+    				"margin-left: 8px;"
     		);
+
+    		// These mouseover CSS rules are marked !important in order to overcome
+    		// the priority of 'background-color' being stolen by the inline rules
+    		// added above.
+    		$(".then-nav").removeClass("then-nav-hover");
+    		$(".now-nav").addClass("now-nav-hover");
+    		$(".when-nav").addClass("when-nav-hover");
     		
     		// Get content
     		$("#thenContent").load("content/then-content.html");
-    		
+            $(".content").addClass("content-fade");
+
     		// Evaluate the referring page to play the correct nav animations
         	if (referringHash.endsWith("index")) {
         	
         	} else if (referringHash.endsWith("now")) {
-    			
+    			$(".now-nav").addClass("then-from-now");
+    			$("#then").addClass("then-from-now-background");
         	} else if (referringHash.endsWith("when")) {
-    			
+        		$(".when-nav").addClass("then-from-when");
+        		$(".now-nav").addClass("then-from-when2");
+        		$("#then").addClass("then-from-when-background");
         	}
         	
         } else if (target.endsWith("now")) {
-        	// Apply styles to "now" page        	
+        	
+        	// Apply styles to "now" navigation bar      	
         	$(".then-nav").attr("style",
     				"background-color: rgba(239, 201, 76, 1);" +
     				"position: fixed;" +
     				"left: 0;" +
-    				"z-index: 0;"
+    				"z-index: 0;" +
+    				"border-left: 4px solid rgba(115, 131, 239, 0);"
     		);
     		$(".now-nav").attr("style",
     				"background-color: rgba(226, 122, 63, 1);" +
@@ -115,16 +154,24 @@ $(function () {
     				"left: 100px;" +
     				"z-index: 1;" +
     				"border-left: 4px solid rgba(97, 226, 224, 1);" +
-    				"padding-right: 4px;"
+    				"margin-left: 4px;"
     		);
-    		$(".now-nav:hover").attr("style","background-color: rgba(226, 122, 63, 1);");
     		$(".when-nav").attr("style",
     				"background-color: rgba(223, 90, 73, 1);" +
     				"position: fixed;" +
     				"left: calc(100vw - 100px);" +
-    				"z-index: 2;"
+    				"z-index: 2;" +
+    				"border-left: 4px solid rgba(107, 223, 165, 0);" +
+    				"margin-left: 8px;"
     		);
-    		
+
+    		// These mouseover CSS rules are marked !important in order to overcome
+    		// the priority of 'background-color' being stolen by the inline rules
+    		// added above.
+    		$(".then-nav").addClass("then-nav-hover");
+    		$(".now-nav").removeClass("now-nav-hover");
+    		$(".when-nav").addClass("when-nav-hover");
+    		    		
     		// Get content
     		$("#nowContent").load("content/now-content.html");
     		
@@ -132,31 +179,43 @@ $(function () {
         	if (referringHash.endsWith("index")) {
         		
         	} else if (referringHash.endsWith("then")) {
-        		
+        		$(".now-nav").addClass("now-from-then");
+        		$("#now").addClass("now-from-then-background");
         	} else if (referringHash.endsWith("when")) {
-        		
+        		$(".when-nav").addClass("now-from-when");
+        		$("#now").addClass("now-from-when-background");
         	}
         	
         } else if (target.endsWith("when")) {
-        	// Apply styles to "when" page
+
+        	// Apply styles to "when" navigation bar
         	$(".then-nav").attr("style",
     				"background-color: rgba(239, 201, 76, 1);" +
     				"position: fixed;" +
-    				"left: 0;"
+    				"left: 0;" +
+    				"border-left: 4px solid rgba(115, 131, 239, 0);"
     		);
     		$(".now-nav").attr("style",
     				"background-color: rgba(226, 122, 63, 1);" +
     				"position: fixed;" +
-    				"left: 100px;"
+    				"left: 100px;" +
+    				"border-left: 4px solid rgba(97, 226, 224, 0);" +
+    				"margin-left: 4px;"
     		);
     		$(".when-nav").attr("style",
     				"background-color: rgba(223, 90, 73, 1);" +
     				"position: fixed;" +
     				"left: 200px;" +
     				"border-left: 4px solid rgba(107, 223, 165, 1);" +
-    				"padding-right: 4px;"
+    				"margin-left: 8px;"
     		);
-    		$(".when-nav:hover").attr("style","background-color: rgba(223, 90, 73, 1);");
+
+    		// These mouseover CSS rules are marked !important in order to overcome
+    		// the priority of 'background-color' being stolen by the inline rules
+    		// added above.
+    		$(".then-nav").addClass("then-nav-hover");
+    		$(".now-nav").addClass("now-nav-hover");
+    		$(".when-nav").removeClass("when-nav-hover");
     		
     		// Get content
     		$("#whenContent").load("content/when-content.html");
@@ -165,12 +224,16 @@ $(function () {
         	if (referringHash.endsWith("index")) {
         	        		
         	} else if (referringHash.endsWith("then")) {
-        		
+        		$(".when-nav").addClass("when-from-then");
+        		$(".now-nav").addClass("when-from-then2");
+        		$("#when").addClass("when-from-then-background");
         	} else if (referringHash.endsWith("now")) {
-        		
+        		$(".when-nav").addClass("when-from-now");
+        		$("#when").addClass("when-from-now-background");
         	}
         }
         
+        // Update the referring hash when all rendering is complete
         referringHash = target;
     }
 
