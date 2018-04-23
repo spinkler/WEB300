@@ -1,9 +1,13 @@
 $(function () {
+
     var referringHash = decodeURI(window.location.hash);
-	
+    var fadeOutTimer = 100;
+    var fadeInTimer = 500;
+
     $(window).on('hashchange', function(){
         // On every hash change the render function is called with the new hash.
         // This is how the navigation of our app happens.
+    	
     	render(decodeURI(window.location.hash));
     });
     
@@ -13,7 +17,7 @@ $(function () {
     	
     	
         // Get the keyword from the url.
-        var temp = url.split('/')[0];
+        var urlData = url.split('/');
 
         // Hide whatever page is currently shown.
         $('.main-content .page').addClass('hidden');
@@ -24,32 +28,29 @@ $(function () {
         $('#now').addClass('hidden');
         $('#when').addClass('hidden');
         
-        // Unload content before rendering new page... Do we want this? Might be friendly on memory
-        // but data will need to be fetched each time. Dynamic loading alone might be enough to alleviate
-        // initial page load times, but unloading just might not be useful.
-        document.getElementById("thenContent").innerHTML = "";
-        document.getElementById("nowContent").innerHTML = "";
-        document.getElementById("whenContent").innerHTML = "";
-
+        // Unload (and fade out) content before rendering new page
+        $(".content").fadeOut(fadeOutTimer, function() {
+        		$('.content').html("");
+        });
 
         var map = {
 
             // The Homepage.
-            '': function() { renderPage('index'); },
+            '': function() { renderPage('index',urlData[1]); },
 
             // "Then" page.
-            '#then': function() { renderPage('then'); },
+            '#then': function() { renderPage('then',urlData[1]); },
 
             // "Now" page.
-            '#now': function() { renderPage('now'); },
+            '#now': function() { renderPage('now',urlData[1]); },
             
             // "When..?" page.
-            '#when': function() { renderPage('when'); }
+            '#when': function() { renderPage('when',urlData[1]); }
         };
             
         // Execute the needed function depending on the url keyword (stored in temp).
-        if(map[temp]){
-            map[temp]();
+        if(map[urlData[0]]){
+            map[urlData[0]]();
         }
         // If the keyword isn't listed in the above - render the error page.
         else {
@@ -57,16 +58,13 @@ $(function () {
         }
     }
     
-    function renderPage(target) {
+    function renderPage(target, pageNumber) {
         var page = $('#' + target);
-
-        $(".content").removeClass("content-fade");
         
         // Remove animation classes before rendering
         // so that new animations can work correctly
 		$(".now-nav").removeClass("then-from-now");
 		$("#then").removeClass("then-from-now-background");
-		$(".then-nav").removeClass("then-from-now-border-fade");
 		
 		$(".when-nav").removeClass("then-from-when");
 		$(".now-nav").removeClass("then-from-when2");
@@ -85,38 +83,29 @@ $(function () {
 		$(".now-nav").removeClass("when-from-then2");
 		$("#when").removeClass("when-from-then-background");
 		
-        $("#then .subnav>ul>li").removeClass("subnav-animation");
-        $("#now .subnav>ul>li").removeClass("subnav-animation");
-        $("#when .subnav>ul>li").removeClass("subnav-animation");
+        $("#then .subnav>ul li").removeClass("subnav-animation");
+        $("#now .subnav>ul li").removeClass("subnav-animation");
+        $("#when .subnav>ul li").removeClass("subnav-animation");
         
         page.removeClass('hidden');
         
+     
         if (target.endsWith("then")) {
-            $("#then .subnav>ul>li").addClass("subnav-animation");
+            $("#then .subnav>ul li").addClass("subnav-animation");
         	
         	// Apply styles to "then" navigation bar        	
         	$(".then-nav").attr("style",
-    				"background-color: rgba(239, 201, 76, 1);" +
-    				"position: fixed;" +
-    				"left: 0;" +
-    				"z-index: 5;" +
-    				"border-left: 4px solid rgba(115, 131, 239, 1);"
+        			"border-left: 4px solid var(--then-highlight-color);"
     		);
     		$(".now-nav").attr("style",
-    				"background-color: rgba(226, 122, 63, 1);" +
-    				"position: fixed;" +
     				"left: calc(100vw - 208px);" +
-    				"z-index: 6;" +
-    				"border-left: 4px solid rgba(97, 226, 224, 0);" +
-    				"margin-left: 4px;"
+    				"border-left: 0px;" +
+    				"padding-left: 4px;"
     		);
     		$(".when-nav").attr("style",
-    				"background-color: rgba(223, 90, 73, 1);" +
-    				"position: fixed;" +
-    				"left: calc(100vw - 100px);" +
-    				"z-index: 7;" +
-    				"border-left: 4px solid rgba(107, 223, 165, 0);" +
-    				"margin-left: 8px;"
+    				"left: calc(100vw - 104px);" +
+    				"border-left: 0px;" +
+    				"padding-left: 4px;"
     		);
 
     		// These mouseover CSS rules are marked !important in order to overcome
@@ -127,8 +116,26 @@ $(function () {
     		$(".when-nav").addClass("when-nav-hover");
     		
     		// Get content
-    		$("#thenContent").load("content/then-content.html");
-            $(".content").addClass("content-fade");
+    		$(".content").fadeOut(fadeOutTimer, function() {
+	    		if (pageNumber == 1 || pageNumber == undefined) {
+	    	    		$("#thenContent").load("content/then-content1.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+			} else if (pageNumber == 2) {
+	    			$("#thenContent").load("content/then-content2.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+				});
+	    		} else if (pageNumber == 3) {
+	    			$("#thenContent").load("content/then-content3.html",function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else {
+	    			$("#thenContent").html("<h2>Page not found</h2>", $(".content").fadeIn(fadeInTimer));
+	    		}
+    		});
 
     		// Evaluate the referring page to play the correct nav animations
         	if (referringHash.endsWith("index")) {
@@ -143,31 +150,20 @@ $(function () {
         	}
         	
         } else if (target.endsWith("now")) {
-            $("#now .subnav>ul>li").addClass("subnav-animation");
+            $("#now .subnav>ul li").addClass("subnav-animation");
         	
         	// Apply styles to "now" navigation bar      	
         	$(".then-nav").attr("style",
-    				"background-color: rgba(239, 201, 76, 1);" +
-    				"position: fixed;" +
-    				"left: 0;" +
-    				"z-index: 5;" +
-    				"border-left: 4px solid rgba(115, 131, 239, 0);"
+    				"border-left: 0px;" +
+    				"padding-left: 4px;"
     		);
     		$(".now-nav").attr("style",
-    				"background-color: rgba(226, 122, 63, 1);" +
-    				"position: fixed;" +
-    				"left: 100px;" +
-    				"z-index: 6;" +
-    				"border-left: 4px solid rgba(97, 226, 224, 1);" +
-    				"margin-left: 4px;"
+    				"left: 104px;"
     		);
     		$(".when-nav").attr("style",
-    				"background-color: rgba(223, 90, 73, 1);" +
-    				"position: fixed;" +
-    				"left: calc(100vw - 100px);" +
-    				"z-index: 7;" +
-    				"border-left: 4px solid rgba(107, 223, 165, 0);" +
-    				"margin-left: 8px;"
+    				"left: calc(100vw - 104px);" +
+    				"border-left: 0px;" +
+    				"padding-left: 4px;"
     		);
 
     		// These mouseover CSS rules are marked !important in order to overcome
@@ -178,8 +174,27 @@ $(function () {
     		$(".when-nav").addClass("when-nav-hover");
     		    		
     		// Get content
-    		$("#nowContent").load("content/now-content.html");
-    		
+        	$(".content").fadeOut(fadeOutTimer, function() {
+	    		if (pageNumber == 1 || pageNumber == undefined) {
+	    			$("#nowContent").load("content/now-content1.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else if (pageNumber == 2) {
+	    			$("#nowContent").load("content/now-content2.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else if (pageNumber == 3) {
+	    			$("#nowContent").load("content/now-content3.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else {
+	    			$("#nowContent").html("<h2>Page not found</h2>", $(".content").fadeIn(fadeInTimer));
+	    		}
+        	});
+        	 		
     		// Evaluate the referring page to play the correct nav animations
         	if (referringHash.endsWith("index")) {
         		
@@ -192,31 +207,20 @@ $(function () {
         	}
         	
         } else if (target.endsWith("when")) {
-            $("#when .subnav>ul>li").addClass("subnav-animation");
+            $("#when .subnav>ul li").addClass("subnav-animation");
 
         	// Apply styles to "when" navigation bar
         	$(".then-nav").attr("style",
-    				"background-color: rgba(239, 201, 76, 1);" +
-    				"position: fixed;" +
-    				"left: 0;" +
-    				"z-index: 5;" +
-    				"border-left: 4px solid rgba(115, 131, 239, 0);"
+    				"border-left: 0px;" +
+    				"padding-left: 4px;"
     		);
     		$(".now-nav").attr("style",
-    				"background-color: rgba(226, 122, 63, 1);" +
-    				"position: fixed;" +
-    				"left: 100px;" +
-    				"z-index: 6;" +
-    				"border-left: 4px solid rgba(97, 226, 224, 0);" +
-    				"margin-left: 4px;"
+    				"left: 104px;" +
+    				"border-left: 0px;" +
+    				"padding-left: 4px;"
     		);
     		$(".when-nav").attr("style",
-    				"background-color: rgba(223, 90, 73, 1);" +
-    				"position: fixed;" +
-    				"left: 200px;" +
-    				"z-index: 7;" +
-    				"border-left: 4px solid rgba(107, 223, 165, 1);" +
-    				"margin-left: 8px;"
+    				"left: 208px;"
     		);
 
     		// These mouseover CSS rules are marked !important in order to overcome
@@ -227,8 +231,27 @@ $(function () {
     		$(".when-nav").removeClass("when-nav-hover");
     		
     		// Get content
-    		$("#whenContent").load("content/when-content.html");
-    		
+        	$(".content").fadeOut(fadeOutTimer, function() {
+	    		if (pageNumber == 1 || pageNumber == undefined) {
+	    			$("#whenContent").load("content/when-content1.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else if (pageNumber == 2) {
+	    			$("#whenContent").load("content/when-content2.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else if (pageNumber == 3) {
+	    			$("#whenContent").load("content/when-content3.html", function() {
+					$(".content").fadeIn(fadeInTimer);
+					FB.XFBML.parse();
+			       	});
+	    		} else {
+	    			$("#whenContent").html("<h2>Page not found</h2>", $(".content").fadeIn(fadeInTimer));
+	    		}
+        	});
+        	        	
     		// Evaluate the referring page to play the correct nav animations
         	if (referringHash.endsWith("index")) {
         	        		
@@ -241,11 +264,12 @@ $(function () {
         		$("#when").addClass("when-from-now-background");
         	}
         }
-        
+	
         // Update the referring hash when all rendering is complete
         referringHash = target;
     }
 
+    // Initial render
     render(decodeURI(window.location.hash));
 
 });

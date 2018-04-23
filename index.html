@@ -8,7 +8,17 @@
     <meta name="keywords" content="digitisation,convergence">
     <meta name="author" content="Ty Scicluna">
 
-    <title></title>
+	<!-- These help the Facebook comments plugin -->
+	<meta property="og:url"			content="http://web300wmp.tk" />
+	<meta property="og:type"		content="article" />
+	<meta property="og:title"		content="WEB300WMP" />
+	<meta property="og:description"	content="WEB300 Web Media Project" />
+	<meta property="og:image"		content="" />
+	<meta property="fb:app_id"		content="" />
+	<meta property="og:site_name"	content="WEB300 Web Media Project" />
+		
+
+    <title>WEB300 Web Media Project</title>
 
     <!-- This loads the relevant fonts via googleapis.com -->
     <style>
@@ -23,12 +33,33 @@
     <![endif]-->
     
     <script src="jquery.js"></script>
-    <script src="handlebars.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js"></script>   
     
   </head>
 
   <body>
+  <!-- Init Facebook Comments Plugin -->
+	<div id="fb-root"></div>
+	<script>
+	var finished_rendering = function() { console.log("finished rendering plugins - AK"); }
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId            : 'web300wmp',
+			autoLogAppEvents : true,
+			xfbml            : true,
+			version          : 'v2.12'
+		});
+	};
+
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+  
     <div class="mainContent">
 
 	  <!--  INDEX  -->
@@ -39,19 +70,19 @@
 		    <a href="#then">
 		      <div class="button" id="left-button">
 		      	<h2>Then</h2>
-		      	<img class="background-svg" src="img/circle-arrow.svg" />
+		      	<img class="background-svg" alt="Then" src="img/circle-arrow.svg" />
 		      </div>
 		    </a>
 		    <a href="#now">
 		      <div class="button" id="middle-button">
 		      	<h2>Now</h2>
-		      	<img class="background-svg" src="img/circle.svg" />
+		      	<img class="background-svg" alt="Now" src="img/circle.svg" />
 		      </div>
 		    </a>  
 		    <a href="#when">
 		      <div class="button" id="right-button">
 		      	<h2>When..?</h2>
-		      	<img class="background-svg flipx" src="img/circle-arrow.svg" />
+		      	<img class="background-svg flipx" alt="When..?" src="img/circle-arrow.svg" />
 		      </div>
 		    </a>
 	    </div>
@@ -63,37 +94,36 @@
 	   	<nav>
 	  		<div class="subnav">
 	  			<ul>
-	  				<li>Item 1</li>
-	  				<li>Item 2</li>
-	  				<li>Item 3</li>
+	  				<li><a href="#then/1"><div>Item 1</div></a></li> <!-- These are wrapped this way to -->
+	  				<li><a href="#then/2"><div>Item 2</div></a></li> <!-- comply with HTML standards    -->
+	  				<li><a href="#then/3"><div>Item 3</div></a></li> <!-- while giving us a button link -->
 	  			</ul>
 	  		</div>
 	  		
 	  		<div class="nav-div then-nav">
-	  			<img src="img/circle-arrow.svg" />
+	  			<img alt="Then navigation icon" src="img/circle-arrow.svg" />
 	  			<h1>Then</h1>
 	  			
 
 	  		</div>
 	  		
-	  		<a href="#now">
+	  		<a href="#now/1">
 	  			<div class="nav-div now-nav">
-	  				<img src="img/circle.svg" />
+	  				<img alt="Now navigation icon" src="img/circle.svg" />
 	  				<h1>Now</h1>
 	  			</div>
 	  		</a>
 	  		
-	  		<a href="#when">
+	  		<a href="#when/1">
 	  			<div class="nav-div when-nav">
-	  				<img class="flipx" src="img/circle-arrow.svg" />
+	  				<img class="flipx" alt="When navigation icon" src="img/circle-arrow.svg" />
 	  				<h1>When..?</h1>
 	  			</div>
 	  		</a>
 	  	</nav>
-	  	  	
-	    
+
 	    <article>
-	    	<div id="thenContent" class="content"></div>
+	    	<div id="thenContent" class="content"></div>	    	
 	    </article>
 	  </div>
 	
@@ -102,27 +132,27 @@
 	  	<nav>
 	  		<div class="subnav">
 	  			<ul>
-	  				<li>Item 1</li>
-	  				<li>Item 2</li>
-	  				<li>Item 3</li>
+	  				<li><a href="#now/1"><div>Item 1</div></a></li>
+	  				<li><a href="#now/2"><div>Item 2</div></a></li>
+	  				<li><a href="#now/3"><div>Item 3</div></a></li>
 	  			</ul>
 	  		</div>
 	  		
-	  		<a href="#then">
+	  		<a href="#then/1">
 	  			<div class="nav-div then-nav">
-	  				<img src="img/circle-arrow.svg" />
+	  				<img alt="Then navigation icon" src="img/circle-arrow.svg" />
 	  				<h1>Then</h1>
 	  			</div>
 	  		</a>
 	  		
 			<div class="nav-div now-nav">
-				<img src="img/circle.svg" />
+				<img alt="Now navigation icon" src="img/circle.svg" />
 				<h1>Now</h1>
 			</div>
 	  		
-	  		<a href="#when">
+	  		<a href="#when/1">
 	  			<div class="nav-div when-nav">
-	  				<img class="flipx" src="img/circle-arrow.svg" />
+	  				<img class="flipx" alt="When navigation icon" src="img/circle-arrow.svg" />
 	  				<h1>When..?</h1>
 	  			</div>
 	  		</a>
@@ -138,28 +168,28 @@
 	  	<nav>
 	  		<div class="subnav">
 	  			<ul>
-	  				<li>Item 1</li>
-	  				<li>Item 2</li>
-	  				<li>Item 3</li>
+	  				<li><a href="#when/1"><div>Item 1</div></a></li>
+	  				<li><a href="#when/2"><div>Item 2</div></a></li>
+	  				<li><a href="#when/3"><div>Item 3</div></a></li>
 	  			</ul>
 	  		</div>
 	  		
-	  		<a href="#then">
+	  		<a href="#then/1">
 	  			<div class="nav-div then-nav">
-	  				<img src="img/circle-arrow.svg" />
+	  				<img alt="Then navigation icon" src="img/circle-arrow.svg" />
 	  				<h1>Then</h1>
 	  			</div>
 	  		</a>
 	  		
-			<a href="#now">
+			<a href="#now/1">
 				<div class="nav-div now-nav">
-					<img src="img/circle.svg" />
+					<img alt="Now navigation icon" src="img/circle.svg" />
 					<h1>Now</h1>
 				</div>
 			</a>
 	  		
 			<div class="nav-div when-nav">
-				<img class="flipx" src="img/circle-arrow.svg" />
+				<img class="flipx" alt="When navigation icon" src="img/circle-arrow.svg" />
 				<h1>When..?</h1>
 			</div>
 	  	</nav>

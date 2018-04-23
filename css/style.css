@@ -1,3 +1,30 @@
+/* Some variables to help us with colour selection */
+:root {
+  --main-background-color: #34495e;
+  --main-h1-color: rgba(255, 255, 255, 0.8);
+
+  /* We use hsl() values here so that we can easily control
+     the aesthetic of mouseover colours */
+     
+  --then-root-color: hsl(4, 65%, 60%);
+  --now-root-color: hsl(210, 62%, 68%);
+  --when-root-color: hsl(66, 64%, 66%);
+  
+  /* Same colours as root -20% saturation */
+  --then-background-color: hsl(4, 45%, 60%);
+  --now-background-color: hsl(210, 42%, 68%);
+  --when-background-color: hsl(66, 44%, 66%);
+  
+  /* Same colours as root +5% lightness */
+  --then-root-mouseover-color: hsl(4, 65%, 65%);
+  --now-root-mouseover-color: hsl(210, 62%, 73%);
+  --when-root-mouseover-color: hsl(66, 64%, 71%);
+  
+  --then-highlight-color: rgba(139, 196, 163, 1);
+  --now-highlight-color: rgba(229, 185, 110, 1);
+  --when-highlight-color: rgba(167, 118, 204, 1);
+}
+
 /* Help older browsers deal with common HTML5/CSS3 elements. */
 header, section, footer, aside, nav, article figure {
 	display: block;
@@ -17,7 +44,7 @@ body, .page {
 	width: 100vw; /* Set the global page width */
 	/* height: 100vh; // This was creating a vertical page that was too long - scrollbars */
 	margin: 0;
-	background-color: #fff; /* Set background colour to white */
+	background-color: var(--main-background-color); /* Set background colour to white */
 	color: rgba(0, 0, 0, 0.54);
 	font-family: 'Raleway', sans-serif; /* Sets the font priority for the body */
 	font-size: medium; /* Set base font size */
@@ -27,27 +54,39 @@ body, .page {
 }
 
 #then {
-	background-color: rgba(244, 219, 135, 1);
-}
-
-#then nav {
-	background-color: rgba(239, 201, 76, 1);
+	background-color: var(--then-background-color);
 }
 
 #now {
-	background-color: rgba(236, 166, 126, 1);
-}
-
-#now nav {
-	background-color: rgba(226, 122, 63, 1);
+	background-color: var(--now-background-color);
 }
 
 #when {
-	background-color: rgba(234, 144, 133, 1);
+	background-color: var(--when-background-color);
 }
 
-#when nav {
-	background-color: rgba(223, 90, 73, 1);
+.then-nav {
+	position: fixed;
+	left: 0;
+	background-color: var(--then-root-color);
+	z-index: 5;
+	border-left: 4px solid var(--then-highlight-color);
+}
+
+.now-nav {
+	position: fixed;
+	background-color: var(--now-root-color);
+	z-index: 6;
+	border-left: 4px solid var(--now-highlight-color);
+	margin-left: 4px;
+}
+
+.when-nav {
+	position: fixed;
+	background-color: var(--when-root-color);
+	z-index: 7;
+	border-left: 4px solid var(--when-highlight-color);
+	margin-left: 8px;
 }
 
 nav {
@@ -90,34 +129,40 @@ nav h1 {
 	top: 25px;
 	padding-top: 20px;
 	color: #fff;
+	text-decoration: none;
 }
 
 #then .subnav {
-	left: -39px;
+	left: -40px;
 }
 
 #then .subnav li {
-	background-color: rgba(115, 131, 239, 1);
+	background-color: var(--then-highlight-color);
 }
 
 #now .subnav {
-	left: 64px;
+	left: 68px;
 }
 
 #now .subnav li {
-	background-color: rgba(97, 226, 224, 1);
+	background-color: var(--now-highlight-color);
 }
 
 #when .subnav {
-	left: 168px;
+	left: 176px;
 }
 
 #when .subnav li {
-	background-color: rgba(107, 223, 165, 1);
+	background-color: var(--when-highlight-color);
+}
+
+li a {
+	text-decoration: none;
+	color: #fff;
 }
 
 h1 {
-	color: #334d5c;
+	color: var(--main-h1-color);
 	font-size: 4em;
 }
 
@@ -126,7 +171,7 @@ h2 {
 	font-size: 4em;
 }
 
-.content h2 {
+article h2 {
 	color: rgba(0, 0, 0, 0.34);
 	line-height: 1em;
 	margin: 20px;
@@ -146,11 +191,38 @@ article {
 	width: 70vw;
 	height: calc(95vh - 150px);
 	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.content-header {
+	width: 100%;
+}
+
+.content-data {
+	left: 0;
+}
+
+.content-comments {
+	width: 20%;
+	min-width: 350px;
+	background-color: rgba(255, 255, 255, 0.8);
+	float: right;
+	max-height: 450px;
+	overflow-y: scroll;
+	border-radius: 4px;
+	box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.35);
+	margin-left: 15px;
+}
+
+.fb-comments {
+	border-left: 3px solid;
+	padding: 10px;
 }
 
 article .content {
 	height: inherit;
 	display: table-cell;
+	padding: 0px 15px;
 }
 
 .nav-div {
@@ -237,18 +309,18 @@ article .content {
 }
 
 #left-button {
-	background-color: rgba(239, 201, 76, 1);
+	background-color: var(--then-root-color);
 	
 	left: 0;
 }
 
 #left-button:hover, .then-nav-hover:hover {
 	/* background-color: rgba(239, 201, 76, 0.75); */
-	background-color: rgba(243, 215, 121, 1) !important;
+	background-color: var(--then-root-mouseover-color) !important;
 }
 
 #middle-button {
-	background-color: rgba(226, 122, 63, 1);
+	background-color: var(--now-root-color);
 	
 	left: 50%;
 	margin-left: -16.65%;
@@ -257,18 +329,18 @@ article .content {
 
 #middle-button:hover, .now-nav-hover:hover {
 	/* background-color: rgba(226, 122, 63, 0.75); */
-	background-color: rgba(233, 155, 111, 1) !important;
+	background-color: var(--now-root-mouseover-color) !important;
 }
 
 #right-button {
-	background-color: rgba(223, 90, 73, 1);
+	background-color: var(--when-root-color);
 	
 	right: 0;
 }
 
 #right-button:hover, .when-nav-hover:hover {
 	/* background-color: rgba(223, 90, 73, 0.75); */
-	background-color: rgba(231, 131, 119, 1) !important;
+	background-color: var(--when-root-mouseover-color) !important;
 }
 
 .hidden {
@@ -430,19 +502,10 @@ article .content {
 	-webkit-animation-timing-function: ease-in-out;
 }
 
-/* CONTENT FADING */
-.content-fade {
-	animation-name: content-fade;
-	animation-duration: 1s;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
-}
-
 /* SUBNAV MOVEMENT */
 .subnav-animation {
 	animation-name: subnav;
-	animation-delay: .9s;
+	animation-delay: .66s;
 	animation-duration: .4s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in-out;
@@ -459,17 +522,17 @@ article .content {
 	}
 
 	100% {
-		left: 100px;
+		left: 104px;
 	}
 }
 
 @keyframes then-from-when {
 	0% {
-		left: calc(100vw - 100px);
+		left: calc(100vw - 104px);
 	}
 
 	100% {
-		left: 200px;
+		left: 208px;
 	}
 }
 
@@ -479,13 +542,13 @@ article .content {
 	}
 
 	100% {
-		left: 100px;
+		left: 104px;
 	}
 }
 
 @keyframes now-from-then {
 	0% {
-		left: 100px;
+		left: 104px;
 	}
 
 	100% {		
@@ -495,27 +558,27 @@ article .content {
 
 @keyframes now-from-when {
 	0% {
-		left: calc(100vw - 100px);
+		left: calc(100vw - 104px);
 	}
 	
 	100% {
-		left: 200px;
+		left: 208px;
 	}
 }
 
 @keyframes when-from-now {
 	0% {
-		left: 200px;
+		left: 208px;
 	}
 
 	100% {
-		left: calc(100vw - 100px);
+		left: calc(100vw - 104px);
 	}
 }
 
 @keyframes when-from-then {
 	0% {
-		left: 200px;
+		left: 208px;
 	}
 
 	100% {
@@ -525,7 +588,7 @@ article .content {
 
 @keyframes when-from-then2 {
 	0% {
-		left: 100px;
+		left: 104px;
 	}
 
 	100% {
@@ -536,76 +599,61 @@ article .content {
 /* BACKGROUND TRANSITIONS */
 @keyframes then-from-now-background {
 	0% {
-		background-color: rgba(244, 219, 135, 1);
+		background-color: var(--then-background-color);
 	}
 	
 	100% {
-		background-color: rgba(236, 166, 126, 1);
+		background-color: var(--now-background-color);
 	}
 }
 
 @keyframes then-from-when-background {
 	0% {
-		background-color: rgba(244, 219, 135, 1);
+		background-color: var(--then-background-color);
 	}
 	
 	100% {
-		background-color: rgba(234, 144, 133, 1);
+		background-color: var(--when-background-color);
 	}
 }
 
 @keyframes now-from-then-background {
 	0% {
-		background-color: rgba(236, 166, 126, 1);
+		background-color: var(--now-background-color);
 	}
 	
 	100% {
-		background-color: rgba(244, 219, 135, 1);
+		background-color: var(--then-background-color);
 	}
 }
 
 @keyframes now-from-when-background {
 	0% {
-		background-color: rgba(236, 166, 126, 1);
+		background-color: var(--now-background-color);
 	}
 	
 	100% {
-		background-color: rgba(234, 144, 133, 1);
+		background-color: var(--when-background-color);
 	}
 }
 
 @keyframes when-from-now-background {
 	0% {
-		background-color: rgba(234, 144, 133, 1);
+		background-color: var(--when-background-color);
 	}
 	
 	100% {
-		background-color: rgba(236, 166, 126, 1);
+		background-color: var(--now-background-color);
 	}
 }
 
 @keyframes when-from-then-background {
 	0% {
-		background-color: rgba(234, 144, 133, 1);
+		background-color: var(--when-background-color);
 	}
 	
 	100% {
-		background-color: rgba(244, 219, 135, 1);
-	}
-}
-
-/* CONTENT FADING */
-@keyframes content-fade {
-	0% {
-		color: rgba(0, 0, 0, 0.54);
-	}
-	
-	50% {
-		color: rgba(0, 0, 0, 0);
-	}
-	
-	100% {
-		color: rgba(0, 0, 0, 0.54);
+		background-color: var(--then-background-color);
 	}
 }
 
