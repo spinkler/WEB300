@@ -27,6 +27,8 @@ $(function () {
         $('#then').addClass('hidden');
         $('#now').addClass('hidden');
         $('#when').addClass('hidden');
+        $('#references').addClass('hidden');
+        $('#copyright').addClass('hidden');
         
         // Unload (and fade out) content before rendering new page
         $(".content").fadeOut(fadeOutTimer, function() {
@@ -35,17 +37,23 @@ $(function () {
 
         var map = {
 
-            // The Homepage.
+            // The Homepage
             '': function() { renderPage('index',urlData[1]); },
 
-            // "Then" page.
+            // "Then" page
             '#then': function() { renderPage('then',urlData[1]); },
 
-            // "Now" page.
+            // "Now" page
             '#now': function() { renderPage('now',urlData[1]); },
             
-            // "When..?" page.
-            '#when': function() { renderPage('when',urlData[1]); }
+            // "When..?" page
+            '#when': function() { renderPage('when',urlData[1]); },
+            
+            // References page
+            '#references': function () { renderPage('references',urlData[1]); },
+            
+            // Copyright page
+            '#copyright': function () { renderPage('copyright',urlData[1]); }
         };
             
         // Execute the needed function depending on the url keyword (stored in temp).
@@ -82,16 +90,37 @@ $(function () {
 		$(".when-nav").removeClass("when-from-then");
 		$(".now-nav").removeClass("when-from-then2");
 		$("#when").removeClass("when-from-then-background");
+
 		
-        $("#then .subnav>ul li").removeClass("subnav-animation");
-        $("#now .subnav>ul li").removeClass("subnav-animation");
-        $("#when .subnav>ul li").removeClass("subnav-animation");
+        $("#then .subnav1").removeClass("subnav-animation1");
+        $("#then .subnav2").removeClass("subnav-animation2");
+        $("#then .subnav3").removeClass("subnav-animation3");
+        $("#now .subnav1").removeClass("subnav-animation1");
+        $("#now .subnav2").removeClass("subnav-animation2");
+        $("#now .subnav3").removeClass("subnav-animation3");
+        $("#when .subnav1").removeClass("subnav-animation1");
+        $("#when .subnav2").removeClass("subnav-animation2");
+        $("#when .subnav3").removeClass("subnav-animation3");
+        
+        
+        $("#thensubnav1").removeClass("selected");
+        $("#thensubnav2").removeClass("selected");
+        $("#thensubnav3").removeClass("selected");
+        $("#nowsubnav1").removeClass("selected");
+        $("#nowsubnav2").removeClass("selected");
+        $("#nowsubnav3").removeClass("selected");
+        $("#whensubnav1").removeClass("selected");
+        $("#whensubnav2").removeClass("selected");
+        $("#whensubnav3").removeClass("selected");
+        
         
         page.removeClass('hidden');
         
      
         if (target.endsWith("then")) {
-            $("#then .subnav>ul li").addClass("subnav-animation");
+            $("#then .subnav1").addClass("subnav-animation1");
+            $("#then .subnav2").addClass("subnav-animation2");
+            $("#then .subnav3").addClass("subnav-animation3");
         	
         	// Apply styles to "then" navigation bar        	
         	$(".then-nav").attr("style",
@@ -118,19 +147,25 @@ $(function () {
     		// Get content
     		$(".content").fadeOut(fadeOutTimer, function() {
 	    		if (pageNumber == 1 || pageNumber == undefined) {
-	    	    		$("#thenContent").load("content/then-content1.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    			$("#thensubnav1").addClass("selected");
+	    			$("#thenContent").load("content/then-content1.html", function() {
+	    				$(".footer li").css("border-color","var(--then-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 			} else if (pageNumber == 2) {
 	    			$("#thenContent").load("content/then-content2.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
-				});
+	    				$("#thensubnav2").addClass("selected");
+	    				$(".footer li").css("border-color","var(--then-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
+	    			});
 	    		} else if (pageNumber == 3) {
 	    			$("#thenContent").load("content/then-content3.html",function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#thensubnav3").addClass("selected");
+	    				$(".footer li").css("border-color","var(--then-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else {
 	    			$("#thenContent").html("<h2>Page not found</h2>", $(".content").fadeIn(fadeInTimer));
@@ -150,7 +185,9 @@ $(function () {
         	}
         	
         } else if (target.endsWith("now")) {
-            $("#now .subnav>ul li").addClass("subnav-animation");
+            $("#now .subnav1").addClass("subnav-animation1");
+            $("#now .subnav2").addClass("subnav-animation2");
+            $("#now .subnav3").addClass("subnav-animation3");
         	
         	// Apply styles to "now" navigation bar      	
         	$(".then-nav").attr("style",
@@ -177,18 +214,24 @@ $(function () {
         	$(".content").fadeOut(fadeOutTimer, function() {
 	    		if (pageNumber == 1 || pageNumber == undefined) {
 	    			$("#nowContent").load("content/now-content1.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#nowsubnav1").addClass("selected");
+	    				$(".footer li").css("border-color","var(--now-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else if (pageNumber == 2) {
 	    			$("#nowContent").load("content/now-content2.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#nowsubnav2").addClass("selected");
+	    				$(".footer li").css("border-color","var(--now-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else if (pageNumber == 3) {
 	    			$("#nowContent").load("content/now-content3.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#nowsubnav3").addClass("selected");
+	    				$(".footer li").css("border-color","var(--now-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else {
 	    			$("#nowContent").html("<h2>Page not found</h2>", $(".content").fadeIn(fadeInTimer));
@@ -207,7 +250,9 @@ $(function () {
         	}
         	
         } else if (target.endsWith("when")) {
-            $("#when .subnav>ul li").addClass("subnav-animation");
+            $("#when .subnav1").addClass("subnav-animation1");
+            $("#when .subnav2").addClass("subnav-animation2");
+            $("#when .subnav3").addClass("subnav-animation3");
 
         	// Apply styles to "when" navigation bar
         	$(".then-nav").attr("style",
@@ -234,18 +279,24 @@ $(function () {
         	$(".content").fadeOut(fadeOutTimer, function() {
 	    		if (pageNumber == 1 || pageNumber == undefined) {
 	    			$("#whenContent").load("content/when-content1.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#whensubnav1").addClass("selected");
+	    				$(".footer li").css("border-color","var(--when-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else if (pageNumber == 2) {
 	    			$("#whenContent").load("content/when-content2.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#whensubnav2").addClass("selected");
+	    				$(".footer li").css("border-color","var(--when-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else if (pageNumber == 3) {
 	    			$("#whenContent").load("content/when-content3.html", function() {
-					$(".content").fadeIn(fadeInTimer);
-					FB.XFBML.parse();
+	    				$("#whensubnav3").addClass("selected");
+	    				$(".footer li").css("border-color","var(--when-highlight-color)");
+	    				$(".content").fadeIn(fadeInTimer);
+	    				setTimeout(function(){ FB.XFBML.parse(); }, 1100);
 			       	});
 	    		} else {
 	    			$("#whenContent").html("<h2>Page not found</h2>", $(".content").fadeIn(fadeInTimer));

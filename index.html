@@ -22,7 +22,7 @@
 
     <!-- This loads the relevant fonts via googleapis.com -->
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Montserrat');
     </style>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -33,7 +33,7 @@
     <![endif]-->
     
     <script src="jquery.js"></script>
-    <script src="script.js"></script>   
+    <script src="script.js"></script>
     
   </head>
 
@@ -41,23 +41,23 @@
   <!-- Init Facebook Comments Plugin -->
 	<div id="fb-root"></div>
 	<script>
-	var finished_rendering = function() { console.log("finished rendering plugins - AK"); }
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId            : 'web300wmp',
-			autoLogAppEvents : true,
-			xfbml            : true,
-			version          : 'v2.12'
-		});
-	};
-
-	(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+		var finished_rendering = function() { console.log("finished rendering plugins - AK"); }
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId            : 'web300wmp',
+				autoLogAppEvents : true,
+				xfbml            : true,
+				version          : 'v2.12'
+			});
+		};
+	
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
   
     <div class="mainContent">
@@ -66,23 +66,25 @@
 	  <div id="index" class="page hidden">
 	  	<h1>Welcome!</h1>
 	  
+		<iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/DCyZYhobvc4?rel=0&amp;showinfo=0&controls=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>	  
+	  
 	  	<div id="index-button-container">
 		    <a href="#then">
 		      <div class="button" id="left-button">
 		      	<h2>Then</h2>
-		      	<img class="background-svg" alt="Then" src="img/circle-arrow.svg" />
+		      	<img class="background-svg" alt="Then" src="img/then.svg" />
 		      </div>
 		    </a>
 		    <a href="#now">
 		      <div class="button" id="middle-button">
 		      	<h2>Now</h2>
-		      	<img class="background-svg" alt="Now" src="img/circle.svg" />
+		      	<img class="background-svg" alt="Now" src="img/now.svg" />
 		      </div>
 		    </a>  
 		    <a href="#when">
 		      <div class="button" id="right-button">
 		      	<h2>When..?</h2>
-		      	<img class="background-svg flipx" alt="When..?" src="img/circle-arrow.svg" />
+		      	<img class="background-svg" alt="When..?" src="img/when.svg" />
 		      </div>
 		    </a>
 	    </div>
@@ -93,33 +95,39 @@
 	  
 	   	<nav>
 	  		<div class="subnav">
-	  			<ul>
-	  				<li><a href="#then/1"><div>Item 1</div></a></li> <!-- These are wrapped this way to -->
-	  				<li><a href="#then/2"><div>Item 2</div></a></li> <!-- comply with HTML standards    -->
-	  				<li><a href="#then/3"><div>Item 3</div></a></li> <!-- while giving us a button link -->
+	  			<ul> <!-- These are wrapped this way to comply with HTML standards while giving us a button link -->
+	  				<li id="thensubnav1" class="subnav1"><a href="#then/1"><div>
+	  				  <img alt="An Unlikely Resurrection for the Arcade" src="img/arcade-light.svg" />
+	  				</div></a></li>
+	  				<li id="thensubnav2" class="subnav2"><a href="#then/2"><div>
+	  				  <img alt="Rise of the Home Console and PC" src="img/riseofconsole.svg" />
+	  				</div></a></li>
+	  				<li id="thensubnav3" class="subnav3"><a href="#then/3"><div>
+	  				  <img alt="The Historical Significance of the MMO" src="img/mmo.svg" />
+	  				</div></a></li>
 	  			</ul>
 	  		</div>
 	  		
-	  		<div class="nav-div then-nav">
-	  			<img alt="Then navigation icon" src="img/circle-arrow.svg" />
-	  			<h1>Then</h1>
-	  			
-
-	  		</div>
-	  		
-	  		<a href="#now/1">
-	  			<div class="nav-div now-nav">
-	  				<img alt="Now navigation icon" src="img/circle.svg" />
-	  				<h1>Now</h1>
-	  			</div>
-	  		</a>
-	  		
-	  		<a href="#when/1">
-	  			<div class="nav-div when-nav">
-	  				<img class="flipx" alt="When navigation icon" src="img/circle-arrow.svg" />
-	  				<h1>When..?</h1>
-	  			</div>
-	  		</a>
+	  		<div class="mainnav">
+		  		<div class="nav-div then-nav">
+		  			<img alt="Then navigation icon" src="img/then.svg" />
+		  			<h1>Then</h1>
+		  		</div>
+		  		
+		  		<a href="#now/1">
+		  			<div class="nav-div now-nav">
+		  				<img alt="Now navigation icon" src="img/now.svg" />
+		  				<h1>Now</h1>
+		  			</div>
+		  		</a>
+		  		
+		  		<a href="#when/1">
+		  			<div class="nav-div when-nav">
+		  				<img alt="When navigation icon" src="img/when.svg" />
+		  				<h1>When..?</h1>
+		  			</div>
+		  		</a>
+		  	</div>
 	  	</nav>
 
 	    <article>
@@ -132,30 +140,38 @@
 	  	<nav>
 	  		<div class="subnav">
 	  			<ul>
-	  				<li><a href="#now/1"><div>Item 1</div></a></li>
-	  				<li><a href="#now/2"><div>Item 2</div></a></li>
-	  				<li><a href="#now/3"><div>Item 3</div></a></li>
+	  				<li id="nowsubnav1" class="subnav1"><a href="#now/1"><div>
+	  				  <img alt="Always Online" src="img/alwaysonline.svg" />
+					</div></a></li>
+	  				<li id="nowsubnav2" class="subnav2"><a href="#now/2"><div>
+	  				  <img alt="Mobile Convergence" src="img/mobileconvergence.svg" />
+	  				</div></a></li>
+	  				<li id="nowsubnav3" class="subnav3"><a href="#now/3"><div>
+	  				  <img alt="The Contemporary Gamer" src="img/contemporarygamer.svg" />
+	  				</div></a></li>
 	  			</ul>
 	  		</div>
 	  		
-	  		<a href="#then/1">
-	  			<div class="nav-div then-nav">
-	  				<img alt="Then navigation icon" src="img/circle-arrow.svg" />
-	  				<h1>Then</h1>
-	  			</div>
-	  		</a>
-	  		
-			<div class="nav-div now-nav">
-				<img alt="Now navigation icon" src="img/circle.svg" />
-				<h1>Now</h1>
-			</div>
-	  		
-	  		<a href="#when/1">
-	  			<div class="nav-div when-nav">
-	  				<img class="flipx" alt="When navigation icon" src="img/circle-arrow.svg" />
-	  				<h1>When..?</h1>
-	  			</div>
-	  		</a>
+	  		<div class="mainnav">
+		  		<a href="#then/1">
+		  			<div class="nav-div then-nav">
+		  				<img alt="Then navigation icon" src="img/then.svg" />
+		  				<h1>Then</h1>
+		  			</div>
+		  		</a>
+		  		
+				<div class="nav-div now-nav">
+					<img alt="Now navigation icon" src="img/now.svg" />
+					<h1>Now</h1>
+				</div>
+		  		
+		  		<a href="#when/1">
+		  			<div class="nav-div when-nav">
+		  				<img alt="When navigation icon" src="img/when.svg" />
+		  				<h1>When..?</h1>
+		  			</div>
+		  		</a>
+		  	</div>
 	  	</nav>
 	  	
 	    <article>
@@ -168,29 +184,37 @@
 	  	<nav>
 	  		<div class="subnav">
 	  			<ul>
-	  				<li><a href="#when/1"><div>Item 1</div></a></li>
-	  				<li><a href="#when/2"><div>Item 2</div></a></li>
-	  				<li><a href="#when/3"><div>Item 3</div></a></li>
+	  				<li id="whensubnav1" class="subnav1"><a href="#when/1"><div>
+	  				  <img alt="Stepping into the Future with VR/AR" src="img/virtualreality.svg" />
+	  				</div></a></li>
+	  				<li id="whensubnav2" class="subnav2"><a href="#when/2"><div>
+	  				  <img alt="An Investigation into Wearables and Implants" src="img/implants.svg" />
+	  				</div></a></li>
+	  				<li id="whensubnav3" class="subnav3"><a href="#when/3"><div>
+	  				  <img alt="The VR in virtual pilot" src="img/virtualpilot.svg" />
+	  				</div></a></li>
 	  			</ul>
 	  		</div>
 	  		
-	  		<a href="#then/1">
-	  			<div class="nav-div then-nav">
-	  				<img alt="Then navigation icon" src="img/circle-arrow.svg" />
-	  				<h1>Then</h1>
-	  			</div>
-	  		</a>
-	  		
-			<a href="#now/1">
-				<div class="nav-div now-nav">
-					<img alt="Now navigation icon" src="img/circle.svg" />
-					<h1>Now</h1>
+	  		<div class="mainnav">
+		  		<a href="#then/1">
+		  			<div class="nav-div then-nav">
+		  				<img alt="Then navigation icon" src="img/then.svg" />
+		  				<h1>Then</h1>
+		  			</div>
+		  		</a>
+		  		
+				<a href="#now/1">
+					<div class="nav-div now-nav">
+						<img alt="Now navigation icon" src="img/now.svg" />
+						<h1>Now</h1>
+					</div>
+				</a>
+		  		
+				<div class="nav-div when-nav">
+					<img alt="When navigation icon" src="img/when.svg" />
+					<h1>When..?</h1>
 				</div>
-			</a>
-	  		
-			<div class="nav-div when-nav">
-				<img class="flipx" alt="When navigation icon" src="img/circle-arrow.svg" />
-				<h1>When..?</h1>
 			</div>
 	  	</nav>
 	  	
@@ -199,7 +223,66 @@
 	    </article>
 	  </div>
 	  
+	  <!--  REFERENCES  -->
+	  <div id="references" class="page hidden">
+	  	<h1>References</h1>
+	  
+	  	<div id="index-button-container">
+		    <a href="#then">
+		      <div class="button" id="left-button">
+		      	<h2>Then</h2>
+		      	<img class="background-svg" alt="Then" src="img/then.svg" />
+		      </div>
+		    </a>
+		    <a href="#now">
+		      <div class="button" id="middle-button">
+		      	<h2>Now</h2>
+		      	<img class="background-svg" alt="Now" src="img/now.svg" />
+		      </div>
+		    </a>  
+		    <a href="#when">
+		      <div class="button" id="right-button">
+		      	<h2>When..?</h2>
+		      	<img class="background-svg" alt="When..?" src="img/when.svg" />
+		      </div>
+		    </a>
+	    </div>
+	  </div>
+	  
+	  <!--  COPYRIGHT -->
+	  <div id="copyright" class="page hidden">
+	  	<h1>Copyright</h1>
+	  
+	  	<div id="index-button-container">
+		    <a href="#then">
+		      <div class="button" id="left-button">
+		      	<h2>Then</h2>
+		      	<img class="background-svg" alt="Then" src="img/then.svg" />
+		      </div>
+		    </a>
+		    <a href="#now">
+		      <div class="button" id="middle-button">
+		      	<h2>Now</h2>
+		      	<img class="background-svg" alt="Now" src="img/now.svg" />
+		      </div>
+		    </a>  
+		    <a href="#when">
+		      <div class="button" id="right-button">
+		      	<h2>When..?</h2>
+		      	<img class="background-svg" alt="When..?" src="img/when.svg" />
+		      </div>
+		    </a>
+	    </div>
+	  </div>
+	  
     </div>
+
+	<footer class="footer">
+		<ul>
+		  <li><a href="#references">References</a></li>
+		  <li><a href="#copyright">Copyright</a></li>
+		</ul>
+	</footer>
     
   </body>
 
