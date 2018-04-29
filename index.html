@@ -65,10 +65,30 @@
 
 	  <!--  INDEX  -->
 	  <div id="index" class="page hidden">
-	  	<h1>Welcome!</h1>
-	  
-		<iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/DCyZYhobvc4?rel=0&amp;showinfo=0&controls=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>	  
-	  
+  
+	    <article>
+	  	<h1>Welcome to a Convergent Media Experience</h1>
+	  	<h3>brought to you by Three Ominous Cats</h3>	    
+	  	<div class="avatar-div">
+	  	  <img class="avatar" alt="Three Ominous Cats Avatar #1" src="media/avatars/three.jpg" />
+	  	  <img class="avatar" alt="Three Ominous Cats Avatar #1" src="media/avatars/ominous.jpg" />
+	  	  <img class="avatar" alt="Three Ominous Cats Avatar #1" src="media/avatars/cats.jpg" />
+	  	</div>
+	 	<hr />  
+	  	
+	    <p>
+	      This Web Media Project examines the convergence of media over time, with a particular (but not sole)
+	      focus on gaming technologies. It is designed in an asynchronous manner, allowing for a non-linear
+	      experience, however a clear narrative will present itself if you choose a linear viewing experience instead.
+	    </p>
+	    <p>
+	      We also encourage our audience to start discussion on any points of interest using the comment section at the
+	      bottom of each page. Do you remember what it was like back then? How is convergence affecting your life now?
+	      Are you prepared for when convergence seeps into every facet of human life?
+	    </p>
+	    <iframe class="youtube-iframe center" width="560" height="315" src="https://www.youtube.com/embed/DCyZYhobvc4?rel=0&amp;showinfo=0&controls=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>   
+
+	    </article>
 	  	<div id="index-button-container">
 		    <a href="#then">
 		      <div class="button" id="left-button">
@@ -224,6 +244,224 @@
 	    </article>
 	  </div>
 	  
+	  <!--  PRODUCTION DIARY  -->
+	  <div id="productiondiary" class="page hidden">
+  		<div class="subnav">
+  			<ul>
+  				<li id="nowsubnav1" class="subnav1"><a href="#then/1"><div>
+  				  <img alt="Then" src="img/then.svg" />
+				</div></a></li>
+  				<li id="nowsubnav2" class="subnav2"><a href="#now/2"><div>
+  				  <img alt="Now" src="img/now.svg" />
+  				</div></a></li>
+  				<li id="nowsubnav3" class="subnav3"><a href="#when/3"><div>
+  				  <img alt="When" src="img/when.svg" />
+  				</div></a></li>
+  			</ul>
+  		</div>
+	  	
+	  	
+		<article>
+			<div class="content-header">
+				<h2>Production Diary</h2>
+			</div>
+			
+			<hr />
+			
+			<div class="content-data">
+			  <h3>Ty Scicluna</h3>
+			  <h4>Weekly</h4>
+			  <p>
+			    Meetings were held on Discord twice per week, assuring our schedule was adhered to.
+			    This allowed each team member to offer feedback and advice on others’ work, ensuring
+			    that each member was part of the complete production while maintaining separate roles.
+			    A specific schedule audit was conducted during Week 7 to highlight potential issues,
+			    but deadlines were met without issue. The fundamental framework of our design allowed
+			    individuals to work completely independently, and the whole team worked very well to
+			    deliver a complete, punctual project.
+			  </p>
+			  <h4>Week 5</h4>
+			  <p>
+			    Implementation of this project began with establishing a git account to contain our
+			    source code. This ensured logging changes to the code base while providing a means for
+			    the team to access the code. Once set up the directory structure would be created and
+			    pushed to git to offer a starting point, and we proceeded to choose our design.
+			  </p>
+			  <h4>Week 6</h4>
+			  <p>
+			    Implementation of navigation buttons and aesthetics began, offering a fundamental
+			    structure to work with when implementing page animations and transitions.
+			  </p>
+			  <p>
+			    With previous HTML and CSS experience, Javascript was completely missing from my
+			    skill set. Javascript was necessary to provide a clean, smooth user experience, or
+			    our site would lack narrative and direction, so research began.
+			  </p>
+			  <p>
+			    Material design guidelines were researched, particularly for animation. These
+			    animations offer a cohesive, natural, and intuitive experience, making the flow
+			    of information obvious.
+			  </p>
+			  <h4>Week 7</h4>
+			  <p>
+			    After installing an IDE (Integrated Development Environment) to keep track of code
+			    implementation of Javascript began, but had issues. Initially an animation framework
+			    was used. This proved tricky, and was ultimately unsuitable for our needs. It was
+			    time to get my hands dirty and start building this from the ground up.
+			  </p>
+			  <p>
+			    Learning Jquery was my goal, so I began by implementing a basic framework in HTML and CSS.
+			    I have experience in many programming languages and with CSS animations so I had
+			    some idea of what to expect. The first Javascript I implemented resolved the page
+			    we were coming <span class="emphasize">from</span>, allowing me to determine which
+			    page state to transition from, and hence, the beginning state of the next animation.
+			  </p>
+			  <h4>Week 8</h4>
+			    <p>
+			      After implementing transitions I encountered a glaring problem. When tested
+			      remotely the slower speed prevented smooth transitions. Rendering subsequent
+			      pages was incredibly obvious and broke the user experience, neglecting our fundamental
+			      goals.
+			    </p>
+			    <p>
+				  Back to the drawing board, I learned more about Javascript/Jquery, and how to
+				  implement a proper SPA (Single Page Application). This required a major overhaul
+				  of the code base. Luckily all of the referrer logic established earlier would carry
+				  over. Dissatisfied with the colour scheme, this reimplementation also consisted of
+				  assigning all the CSS colour definitions to variables so they could be freely altered.
+				</p>			    
+			  <h4>Week 9</h4>
+			    <p>
+			      With our SPA fully implemented and showcasing smooth transitions and navigation,
+			      week 9 was all about polish. First, colour was given full attention. This was simple
+			      thanks to the variables implemented earlier, so we iterated until we found something
+			      suitable.
+			    </p>
+			    <p>
+			      I reviewed the Material Design animation guidelines to polish delays and durations of
+			      all the animations to offer the most cohesive experience possible, and image modals
+			      were implemented, allowing users to view images in high resolution.
+			    </p>
+			    <p>
+			      With the heavy lifting done, it was now simply a matter of importing and proof reading
+			      the content, registering DNS, uploading, and testing our code.
+			    </p>
+			  
+			  <hr />
+			  
+			  <h3>Nathan Barnes</h3>
+			  <h4>Week 5</h4>
+			  <p>
+			    During the first production week, we met via Discord to discuss our proposed WMP as
+			    set during the draft phase, and all assigned duties were understood before we began our
+			    work. I then conducted preliminary research into the articles we wanted to present on the
+			    website that would be our WMP. My role, inclusive of writing articles, editing and
+			    formatting with addition of acquiring attributable, quotes and images, I had to ensure
+			    all content was easily accessible and transferable from my copy to the website. Therefore,
+			    I utilised the Google Suite I had shared with the team during the draft phase to allow
+			    team members the opportunity to provide feedback, access content and see individual progress.
+			  </p>
+			  <h4>Week 6</h4>
+			  <p>
+			    For this week, I focused on additional article research and compiled the research I had
+			    into drafts based upon each of our nine set topics. I sourced information via Google, feeling
+			    it proved efficient in locating the information required to help form the article I had
+			    selected to write. Although I have experience in, and enjoy the task of creative writing,
+			    I had minor difficulties keeping to the word limit we, as a team, set for each article to
+			    ensure we met the user experience of 10-minutes or less. I overcame this by writing in my
+			    usual style, and applying heavy editing skills, which made for concise articles as planned.
+			  </p>
+			  <h4>Week 7</h4>
+			  <p>
+			    This week I was heavily focused on content development for the website. I began editing my
+			    draft articles, formatting for easy website transference, implementing breakout quotes
+			    and images with attribution and then finalising the article content. This ensured it was
+			    a presentable web standard and the standard we as a team were striving for and found
+			    acceptable. In addition, being midway into the WMP we as a team took time to assess and
+			    ensure we were meeting our set deadlines and assigned duties. We found this to be a
+			    constructive task as it identified we were an effective team that worked well together,
+			    and were effective communicators capable of achieving our set goal.
+			  </p>
+			  <h4>Week 8</h4>
+			  <p>
+			    This week I began by focusing on articles written by other team members and suggesting
+			    edits and feedback I felt applicable. During this week, I was also able to offer feedback
+			    to the current website development, which afforded a learning opportunity, as I was able
+			    to learn a small amount of Javascript, and Jquery that Ty was implementing into our WMP.
+			    Given my entry-level understanding of HTML and CSS, it was of interest to me to see the
+			    code behind our WMP that made it function, which afforded me a learning experience outside
+			    of my defined skill set and knowledge.
+			  </p>
+			  <h4>Week 9</h4>
+			  <p>
+			    During the last week of production, final touches to the WMP ensured our content met the
+			    requirements of a 10-minute or under viewing experience. I wrote the final article assigned
+			    to me, as per our production schedule in addition to raising the question of copyright and
+			    creative commons (CC) usage on DB. The matter of copyright and CC I discussed with the team
+			    as I felt it of great importance given our use of images and materials not of our own creation,
+			    which therefore, I felt required careful consideration. In addition, I compiled a reference
+			    list for all used quotes, images and video files used within all articles, adhering to required
+			    referencing style.
+			  </p>
+			  			 
+			  <hr />
+			  
+			  <h3>Matt Simpson</h3>
+			  <h4>Week 5</h4>
+			  <p>
+			    The first week of production has been light in actual content creation and instead,
+			    much of individual effort was dedicated into going over the brief and aligning my thoughts
+			    to where each team member was headed for the next couple of weeks as per suggested by the
+			    production schedule. During the first of our weekly meetings, I helped to set up some of
+			    the foundations of WMP creation regarding shared documents, templates and discussed who
+			    specifically was writing which article. Nathan and I also evaluated design mock-ups that
+			    Ty had created and suggested feedback and direction for future work in the layout of the WMP.
+			  </p>
+			  <h4>Week 6</h4>
+			  <p>
+			    In this week of production, I attempted to put much of my focus on building a partnership
+			    with Ty as my role required me to assist in some of the web development aspects of the WMP.
+			    I created a GitHub account to collaborate, and provide feedback to Ty, in practice however,
+			    we found it much more productive to allow him to control all coding as modifying or changing
+			    existing code could create confusion. Instead, I allocated this saved time into researching
+			    ways in which we could implement a ‘comments’ feature into the articles, eventually settling
+			    on and suggesting the Facebook comments plugin.
+			  </p>
+			  <h4>Week 7</h4>
+			  <p>
+			    This week I carried out bulk, general background research into the chosen areas of content
+			    production as predetermined by my role. This process required me to read, and gather multiple
+			    articles on topics that we have previously agreed upon to write about. With this information
+			    freshly in mind, I created the first article in the blog &mdash; "An Unlikely Resurrection for the
+			    Arcade", and requested Nathan to provide feedback on the work in Google Docs. This article took
+			    more time to finalise than originally planned in the production schedule as I was aiming to use
+			    the standards of it as a benchmark for preceding work.
+			  </p>
+			  <h4>Week 8</h4>
+			  <p>
+			    Immediately upon receiving detailed feedback from Nathan for my article, I started writing and
+			    further published two more articles &mdash; "Always-Online", and "The Historical Significance
+			    of the MMO" using the sources found in the previous week. Alike to my previous content, these
+			    were submitted to Google Docs for review by Nathan. I found that my previous research, and
+			    previous efforts in writing the first article had set the groundwork to delivering these two
+			    articles in quick succession.
+			  </p>
+			  <h4>Week 9</h4>
+			  <p>
+			    The final week revealed itself to be slightly different to what I had planned as there were
+			    major topic changes to the last two articles, the reason being that the initially planned
+			    articles had too much in common to what was already written by myself and Nathan. This meant
+			    I had to allocate more time earlier in the week to have these articles properly researched,
+			    written and reviewed from the ground up. Finally, I could help the team in adding to the final
+			    touches to the presentation which included testing the website, suggesting several references
+			    to content and providing general feedback to the design to Ty before he delivered the final
+			    upload of our WMP.
+			  </p>
+			  
+			</div>
+		</article>
+	  </div>
+	  
 	  <!--  REFERENCES  -->
 	  <div id="references" class="page hidden">
   		<div class="subnav">
@@ -249,7 +487,68 @@
 			<hr />
 			
 			<div class="content-data">
-
+			<ul>
+			  <li>
+			    1989.com. (n.d). Arcade players at 1989. [Online Image]. Retrieved from <a target="_blank" href="http://1989.com.au/gallery/">http://1989.com.au/gallery/</a>
+			  </li>
+			  <li>
+				8-bitcentral.com. (2018). Atari Pac-Man screenshot [Online Image]. Retrieved from <a target="_blank" href="http://www.8bitcentral.com/reviews/2600pacMan.html">http://www.8bitcentral.com/reviews/2600pacMan.html</a>
+		      </li>
+		      <li>
+				Abbott, C. (2012). Diablo 3’s best error 37 jokes. [Online Image] Retrieved from <a target="_blank" href="http://au.ign.com/articles/2012/05/16/diablo-3s-best-error-37-jokes">http://au.ign.com/articles/2012/05/16/diablo-3s-best-error-37-jokes</a>
+			  </li>
+			  <li>
+				Ahl, D. (1987). Tennis for two. [Online Image]. Retrieved from <a target="_blank" href="http://pongmuseum.com/history/beginningsofcomputergames.php">http://pongmuseum.com/history/beginningsofcomputergames.php</a>
+			  </li>
+			  <li>
+				Badham, V. (2017). What makes a gamer? Sally McManus, Jordan Raskopoulos and more on why they play. The Guardian. Retrieved from <a target="_blank" href="https://www.theguardian.com/technology/2017/sep/26/what-makes-a-gamer-sally-mcmanus-jordan-raskopoulos-and-more-on-why-they-play">https://www.theguardian.com/technology/2017/sep/26/what-makes-a-gamer-sally-mcmanus-jordan-raskopoulos-and-more-on-why-they-play</a>
+			  </li>
+			  <li>
+				Blizzard. (2004). World of Warcraft. [Online Image]. Retrieved from <a target="_blank" href="https://worldofwarcraft.com/en-gb/">https://worldofwarcraft.com/en-gb/</a>
+			  </li>
+			  <li>
+				Blizzard. (2010). Cataclysm global launch event footage. [Video File]. Retrieved from <a target="_blank" href="https://www.youtube.com/watch?v=QyxFSZH-Xdw">https://www.youtube.com/watch?v=QyxFSZH-Xdw</a>
+			  </li>
+			  <li>
+				Brown, M. (2016). Pac-Man arcade [Online Image]. Retrieved from <a target="_blank" href="http://thisdayintechhistory.com/10/10/pac-man-fever-begins/">http://thisdayintechhistory.com/10/10/pac-man-fever-begins/</a>
+			  </li>
+			  <li>
+				IGN. (2010). Deus Ex: Human Evolution – Cinematic trailer. [Video File]. Retrieved from <a target="_blank" href="https://www.youtube.com/watch?v=Kq5KWLqUewc">https://www.youtube.com/watch?v=Kq5KWLqUewc</a>
+			  </li>
+			  <li>
+				King (2012). Candy Crush. [Online Image] Retrieved from <a target="_blank" href="https://itunes.apple.com/au/app/candy-crush-saga/id553834731?mt=8">https://itunes.apple.com/au/app/candy-crush-saga/id553834731?mt=8</a>
+			  </li>
+			  <li>
+				Laminar Research. (2017). X-Plane 11 cover. [Online Image]. Retrieved from <a target="_blank" href="http://www.d-box.com/dbox_games/x-plane-11/">http://www.d-box.com/dbox_games/x-plane-11/</a>
+			  </li>
+			  <li>
+				May, T. (2018). Fixed mobile convergence – Business communications. [Online Image] Retrieved from <a target="_blank" href="https://fanzlive.com/fixed-mobile-convergence-business-communications/">https://fanzlive.com/fixed-mobile-convergence-business-communications/</a>
+			  </li>
+			  <li>
+				Melnick, K. (2018). Augmented reality &amp; dragons. [Online Image]. Retrieved from <a target="_blank" href="https://vrscout.com/news/augmented-reality-dragons-could-be-the-future-of-dd/#">https://vrscout.com/news/augmented-reality-dragons-could-be-the-future-of-dd/#</a>
+			  </li>
+			  <li>
+				Nintendo. (2018). Nintendo Switch (Neon). [Online Image]. Retrieved from <a target="_blank" href="https://www.nintendo.com.au/nintendo-switch/">https://www.nintendo.com.au/nintendo-switch/</a>
+			  </li>
+			  <li>
+				Nightmare26. (2009). The Cable Guy – The future is now. [Video File]. Retrieved from <a target="_blank" href="https://www.youtube.com/watch?v=DCyZYhobvc4">https://www.youtube.com/watch?v=DCyZYhobvc4</a>
+			  </li>
+			  <li>
+				Pokémon Blog. (2017). Pikachu standing on the street. [Online Image]. Retrieved from <a target="_blank" href="https://pokemonblog.com/2017/06/05/new-pokemon-go-update-announced-version-0-63-4-for-android-and-1-33-4-for-ios/">https://pokemonblog.com/2017/06/05/new-pokemon-go-update-announced-version-0-63-4-for-android-and-1-33-4-for-ios/</a>
+			  </li>
+			  <li>
+				Reality Technologies. (2016). The ultimate guide to augmented reality (AR) technology. Reality Technologies. Retrieved from <a target="_blank" href="http://www.realitytechnologies.com/augmented-reality">http://www.realitytechnologies.com/augmented-reality</a>
+			  </li>
+			  <li>
+				Steimle, J. (2014). Mobile is the future of everything. Forbes. Retrieved from <a target="_blank" href="https://www.forbes.com/sites/joshsteimle/2014/02/12/mobile-is-the-future-of-everything/#5893bbac281e">https://www.forbes.com/sites/joshsteimle/2014/02/12/mobile-is-the-future-of-everything/#5893bbac281e</a>
+			  </li>
+			  <li>
+				Vuzix. (2018). The Vuzix Blade augmented reality smart glasses. [Online Image]. Retrieved from <a target="_blank" href="https://www.vuzix.com/Products/Blade-Enterprise">https://www.vuzix.com/Products/Blade-Enterprise</a>
+			  </li>
+			  <li>
+				Wikipedia.org. (2018). An upright cabinet of Pong on display at the Neville Public Museum of Brown County. [Online Image]. Retrieved from <a target="_blank" href="https://en.wikipedia.org/wiki/Pong">https://en.wikipedia.org/wiki/Pong</a>
+			  </li>
+			</ul>
 			</div>
 		</article>
 	  </div>
@@ -281,14 +580,20 @@
 			
 			<div class="content-data">
 			  <p>
-				Under fair use for the purpose of Academia. All materials sourced are properly attributed to to content and license holders.
+				&copy; Three Ominous Cats 2018.
+			  </p>
+			  <p>
+			    The following website has been developed for the purpose of Academia under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+			  </p>
+			  <p>
+			    All non-original, sourced materials are correctly attributed to original content and license holders to adhear to copyright laws.
+			  </p>
+			  <p>
+			    For more information, see <a target="_blank" href="http://www.copyright.com.au">www.copyright.com.au</a> and <a target="_blank" href="https://creativecommons.org.au/learn/licences/">https://creativecommons.org.au/learn/licences/</a>
 			  </p>
 			  
-			  <p>
-			    For more information please see <a target="_blank" href="https://creativecommons.org.au/">Creative Commons</a>
-			    and <a taret="_blank" href="https://www.alrc.gov.au/publications/4-case-fair-use-australia/what-fair-use">
-			    The Case for Fair Use in Australia - Copyright and the Digital Economy (DP 79)</a>.
-			  </p>
+			  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/au/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/au/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/au/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Australia License</a>.
+
 			</div>
 		</article>
 	    
@@ -298,7 +603,7 @@
 
 	<footer class="footer">
 		<ul>
-		  <li><a href="#">Production Diaries</a>
+		  <li><a href="#productiondiary">Production Diaries</a>
 		  <li><a href="#references">References</a></li>
 		  <li><a href="#copyright">Copyright</a></li>
 		</ul>

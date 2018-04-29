@@ -27,6 +27,7 @@ $(function () {
         $('#then').addClass('hidden');
         $('#now').addClass('hidden');
         $('#when').addClass('hidden');
+        $('#productiondiary').addClass('hidden');
         $('#references').addClass('hidden');
         $('#copyright').addClass('hidden');
         
@@ -48,6 +49,9 @@ $(function () {
             
             // "When..?" page
             '#when': function() { renderPage('when',urlData[1]); },
+            
+            // Production Diary page
+            '#productiondiary': function () { renderPage('productiondiary',urlData[1]); },          
             
             // References page
             '#references': function () { renderPage('references',urlData[1]); },
@@ -90,7 +94,23 @@ $(function () {
 		$(".when-nav").removeClass("when-from-then");
 		$(".now-nav").removeClass("when-from-then2");
 		$("#when").removeClass("when-from-then-background");
+		
+		$("#then").removeClass("then-from-main-background");
+		$("#now").removeClass("now-from-main-background");
+		$("#when").removeClass("when-from-main-background");
 
+		$("#index").removeClass("main-from-then-background");
+		$("#index").removeClass("main-from-now-background");
+		$("#index").removeClass("main-from-when-background");
+		$("#productiondiary").removeClass("main-from-then-background");
+		$("#productiondiary").removeClass("main-from-now-background");
+		$("#productiondiary").removeClass("main-from-when-background");
+		$("#references").removeClass("main-from-then-background");
+		$("#references").removeClass("main-from-now-background");
+		$("#references").removeClass("main-from-when-background");
+		$("#copyright").removeClass("main-from-then-background");
+		$("#copyright").removeClass("main-from-now-background");
+		$("#copyright").removeClass("main-from-when-background");
 		
         $("#then .subnav1").removeClass("subnav-animation1");
         $("#then .subnav2").removeClass("subnav-animation2");
@@ -101,6 +121,9 @@ $(function () {
         $("#when .subnav1").removeClass("subnav-animation1");
         $("#when .subnav2").removeClass("subnav-animation2");
         $("#when .subnav3").removeClass("subnav-animation3");
+        $("#productiondiary .subnav1").removeClass("subnav-animation1");
+        $("#productiondiary .subnav2").removeClass("subnav-animation2");
+        $("#productiondiary .subnav3").removeClass("subnav-animation3");
         $("#copyright .subnav1").removeClass("subnav-animation1");
         $("#copyright .subnav2").removeClass("subnav-animation2");
         $("#copyright .subnav3").removeClass("subnav-animation3");
@@ -179,8 +202,9 @@ $(function () {
     		});
 
     		// Evaluate the referring page to play the correct nav animations
-        	if (referringHash.endsWith("index")) {
-        	
+        	if (referringHash.endsWith("index") || referringHash.endsWith("productiondiary") ||
+        			referringHash.endsWith("references") || referringHash.endsWith("copyright")) {
+        		$("#then").addClass("then-from-main-background");        	
         	} else if (referringHash.endsWith("now")) {
     			$(".now-nav").addClass("then-from-now");
     			$("#then").addClass("then-from-now-background");
@@ -245,8 +269,9 @@ $(function () {
         	});
         	 		
     		// Evaluate the referring page to play the correct nav animations
-        	if (referringHash.endsWith("index")) {
-        		
+        	if (referringHash.endsWith("index") || referringHash.endsWith("productiondiary") ||
+        			referringHash.endsWith("references") || referringHash.endsWith("copyright")) {
+        		$("#now").addClass("now-from-main-background");
         	} else if (referringHash.endsWith("then")) {
         		$(".now-nav").addClass("now-from-then");
         		$("#now").addClass("now-from-then-background");
@@ -310,8 +335,9 @@ $(function () {
         	});
         	        	
     		// Evaluate the referring page to play the correct nav animations
-        	if (referringHash.endsWith("index")) {
-        	        		
+        	if (referringHash.endsWith("index") || referringHash.endsWith("productiondiary") ||
+        			referringHash.endsWith("references") || referringHash.endsWith("copyright")) {
+        		$("#when").addClass("when-from-main-background");
         	} else if (referringHash.endsWith("then")) {
         		$(".when-nav").addClass("when-from-then");
         		$(".now-nav").addClass("when-from-then2");
@@ -320,14 +346,47 @@ $(function () {
         		$(".when-nav").addClass("when-from-now");
         		$("#when").addClass("when-from-now-background");
         	}
+        } else if (target.endsWith("productiondiary")) {
+            $("#productiondiary .subnav1").addClass("subnav-animation1");
+            $("#productiondiary .subnav2").addClass("subnav-animation2");
+            $("#productiondiary .subnav3").addClass("subnav-animation3");
+            
+    		// Evaluate the referring page to play the correct nav animations
+        	if (referringHash.endsWith("then")) {
+        		$("#productiondiary").addClass("main-from-then-background");
+        	} else if (referringHash.endsWith("now")) {
+        		$("#productiondiary").addClass("main-from-now-background");
+        	} else if (referringHash.endsWith("when")) {
+        		$("#productiondiary").addClass("main-from-when-background");
+        	}
+            
         } else if (target.endsWith("copyright")) {
             $("#copyright .subnav1").addClass("subnav-animation1");
             $("#copyright .subnav2").addClass("subnav-animation2");
             $("#copyright .subnav3").addClass("subnav-animation3");
+            
+    		// Evaluate the referring page to play the correct nav animations
+        	if (referringHash.endsWith("then")) {
+        		$("#copyright").addClass("main-from-then-background");
+        	} else if (referringHash.endsWith("now")) {
+        		$("#copyright").addClass("main-from-now-background");
+        	} else if (referringHash.endsWith("when")) {
+        		$("#copyright").addClass("main-from-when-background");
+        	}
+        	
         } else if (target.endsWith("references")) {
             $("#references .subnav1").addClass("subnav-animation1");
             $("#references .subnav2").addClass("subnav-animation2");
             $("#references .subnav3").addClass("subnav-animation3");
+            
+    		// Evaluate the referring page to play the correct nav animations
+        	if (referringHash.endsWith("then")) {
+        		$("#references").addClass("main-from-then-background");
+        	} else if (referringHash.endsWith("now")) {
+        		$("#references").addClass("main-from-now-background");
+        	} else if (referringHash.endsWith("when")) {
+        		$("#references").addClass("main-from-when-background");
+        	}
         }
 	
         // Update the referring hash when all rendering is complete
