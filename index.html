@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="digitisation,convergence">
     <meta name="author" content="Ty Scicluna">
+	<meta name="viewport" content="width=device-width, initial-scale=0.5">
+
 
 	<!-- These help the Facebook comments plugin -->
 	<meta property="og:url"			content="http://web300wmp.tk" />
@@ -32,8 +34,8 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    <script src="jquery.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/script.js"></script>
     
   </head>
 
@@ -41,7 +43,6 @@
   <!-- Init Facebook Comments Plugin -->
 	<div id="fb-root"></div>
 	<script>
-		var finished_rendering = function() { console.log("finished rendering plugins - AK"); }
 		window.fbAsyncInit = function() {
 			FB.init({
 				appId            : 'web300wmp',
@@ -97,7 +98,7 @@
 	  		<div class="subnav">
 	  			<ul> <!-- These are wrapped this way to comply with HTML standards while giving us a button link -->
 	  				<li id="thensubnav1" class="subnav1"><a href="#then/1"><div>
-	  				  <img alt="An Unlikely Resurrection for the Arcade" src="img/arcade-light.svg" />
+	  				  <img alt="An Unlikely Resurrection for the Arcade" src="img/arcade.svg" />
 	  				</div></a></li>
 	  				<li id="thensubnav2" class="subnav2"><a href="#then/2"><div>
 	  				  <img alt="Rise of the Home Console and PC" src="img/riseofconsole.svg" />
@@ -144,10 +145,10 @@
 	  				  <img alt="Always Online" src="img/alwaysonline.svg" />
 					</div></a></li>
 	  				<li id="nowsubnav2" class="subnav2"><a href="#now/2"><div>
-	  				  <img alt="Mobile Convergence" src="img/mobileconvergence.svg" />
+	  				  <img alt="The Contemporary Gamer" src="img/contemporarygamer.svg" />
 	  				</div></a></li>
 	  				<li id="nowsubnav3" class="subnav3"><a href="#now/3"><div>
-	  				  <img alt="The Contemporary Gamer" src="img/contemporarygamer.svg" />
+	  				  <img alt="Mobile Convergence" src="img/mobileconvergence.svg" />
 	  				</div></a></li>
 	  			</ul>
 	  		</div>
@@ -185,13 +186,13 @@
 	  		<div class="subnav">
 	  			<ul>
 	  				<li id="whensubnav1" class="subnav1"><a href="#when/1"><div>
-	  				  <img alt="Stepping into the Future with VR/AR" src="img/virtualreality.svg" />
+	  				  <img alt="The VR in virtual pilot" src="img/virtualpilot.svg" />
 	  				</div></a></li>
 	  				<li id="whensubnav2" class="subnav2"><a href="#when/2"><div>
-	  				  <img alt="An Investigation into Wearables and Implants" src="img/implants.svg" />
+	  				  <img alt="Stepping into the Future with VR/AR" src="img/virtualreality.svg" />
 	  				</div></a></li>
 	  				<li id="whensubnav3" class="subnav3"><a href="#when/3"><div>
-	  				  <img alt="The VR in virtual pilot" src="img/virtualpilot.svg" />
+	  				  <img alt="An Investigation into Wearables and Implants" src="img/implants.svg" />
 	  				</div></a></li>
 	  			</ul>
 	  		</div>
@@ -225,60 +226,79 @@
 	  
 	  <!--  REFERENCES  -->
 	  <div id="references" class="page hidden">
-	  	<h1>References</h1>
-	  
-	  	<div id="index-button-container">
-		    <a href="#then">
-		      <div class="button" id="left-button">
-		      	<h2>Then</h2>
-		      	<img class="background-svg" alt="Then" src="img/then.svg" />
-		      </div>
-		    </a>
-		    <a href="#now">
-		      <div class="button" id="middle-button">
-		      	<h2>Now</h2>
-		      	<img class="background-svg" alt="Now" src="img/now.svg" />
-		      </div>
-		    </a>  
-		    <a href="#when">
-		      <div class="button" id="right-button">
-		      	<h2>When..?</h2>
-		      	<img class="background-svg" alt="When..?" src="img/when.svg" />
-		      </div>
-		    </a>
-	    </div>
+  		<div class="subnav">
+  			<ul>
+  				<li id="nowsubnav1" class="subnav1"><a href="#then/1"><div>
+  				  <img alt="Then" src="img/then.svg" />
+				</div></a></li>
+  				<li id="nowsubnav2" class="subnav2"><a href="#now/2"><div>
+  				  <img alt="Now" src="img/now.svg" />
+  				</div></a></li>
+  				<li id="nowsubnav3" class="subnav3"><a href="#when/3"><div>
+  				  <img alt="When" src="img/when.svg" />
+  				</div></a></li>
+  			</ul>
+  		</div>
+	  	
+	  	
+		<article>
+			<div class="content-header">
+				<h2>References</h2>
+			</div>
+			
+			<hr />
+			
+			<div class="content-data">
+
+			</div>
+		</article>
 	  </div>
 	  
 	  <!--  COPYRIGHT -->
 	  <div id="copyright" class="page hidden">
-	  	<h1>Copyright</h1>
-	  
-	  	<div id="index-button-container">
-		    <a href="#then">
-		      <div class="button" id="left-button">
-		      	<h2>Then</h2>
-		      	<img class="background-svg" alt="Then" src="img/then.svg" />
-		      </div>
-		    </a>
-		    <a href="#now">
-		      <div class="button" id="middle-button">
-		      	<h2>Now</h2>
-		      	<img class="background-svg" alt="Now" src="img/now.svg" />
-		      </div>
-		    </a>  
-		    <a href="#when">
-		      <div class="button" id="right-button">
-		      	<h2>When..?</h2>
-		      	<img class="background-svg" alt="When..?" src="img/when.svg" />
-		      </div>
-		    </a>
-	    </div>
+		
+  		<div class="subnav">
+  			<ul>
+  				<li id="nowsubnav1" class="subnav1"><a href="#then/1"><div>
+  				  <img alt="Then" src="img/then.svg" />
+				</div></a></li>
+  				<li id="nowsubnav2" class="subnav2"><a href="#now/2"><div>
+  				  <img alt="Now" src="img/now.svg" />
+  				</div></a></li>
+  				<li id="nowsubnav3" class="subnav3"><a href="#when/3"><div>
+  				  <img alt="When" src="img/when.svg" />
+  				</div></a></li>
+  			</ul>
+  		</div>
+	  	
+	  	
+		<article>
+			<div class="content-header">
+				<h2>Copyright</h2>
+			</div>
+			
+			<hr />
+			
+			<div class="content-data">
+			  <p>
+				Under fair use for the purpose of Academia. All materials sourced are properly attributed to to content and license holders.
+			  </p>
+			  
+			  <p>
+			    For more information please see <a target="_blank" href="https://creativecommons.org.au/">Creative Commons</a>
+			    and <a taret="_blank" href="https://www.alrc.gov.au/publications/4-case-fair-use-australia/what-fair-use">
+			    The Case for Fair Use in Australia - Copyright and the Digital Economy (DP 79)</a>.
+			  </p>
+			</div>
+		</article>
+	    
 	  </div>
 	  
     </div>
 
 	<footer class="footer">
 		<ul>
+		  <li><a href="#">Production Diaries</a>
 		  <li><a href="#references">References</a></li>
 		  <li><a href="#copyright">Copyright</a></li>
 		</ul>

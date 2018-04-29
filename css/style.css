@@ -6,37 +6,34 @@
   /* We use hsl() values here so that we can easily control
      the aesthetic of mouseover colours */
      
-  --then-root-color: hsl(4, 65%, 60%);
-  --now-root-color: hsl(210, 62%, 68%);
-  --when-root-color: hsl(66, 64%, 66%);
+  --then-root-color: hsl(10, 65%, 60%);  /* #db6d57 */
+  --now-root-color:  hsl(221, 62%, 68%); /* #7b9be0 */
+  --when-root-color: hsl(81, 62%, 67%);  /* #bce079 */
   
   /* Same colours as root -20% saturation */
-  --then-background-color: hsl(4, 45%, 60%);
-  --now-background-color: hsl(210, 42%, 68%);
-  --when-background-color: hsl(66, 44%, 66%);
+  --then-background-color: hsl(10, 45%, 60%);
+  --now-background-color:  hsl(221, 42%, 68%);
+  --when-background-color: hsl(81, 42%, 67%);
   
   /* Same colours as root +5% lightness */
-  --then-root-mouseover-color: hsl(4, 65%, 65%);
-  --now-root-mouseover-color: hsl(210, 62%, 73%);
-  --when-root-mouseover-color: hsl(66, 64%, 71%);
+  --then-root-mouseover-color: hsl(10, 65%, 65%);
+  --now-root-mouseover-color:  hsl(221, 62%, 73%);
+  --when-root-mouseover-color: hsl(81, 42%, 72%);
   
-   --then-highlight-selected: hsl(145, 32%, 50%);
-  --now-highlight-selected: hsl(38, 70%, 52%);
-  --when-highlight-selected: hsl(274, 46%, 51%);
-  
-  --then-highlight-color: hsl(145, 32%, 50%);
-  --now-highlight-color: hsl(38, 70%, 52%);
-  --when-highlight-color: hsl(274, 46%, 51%);
+  /* Highlights */
+  --then-highlight-color: hsl(156, 48%, 65%);
+  --now-highlight-color:  hsl(42, 80%, 61%);
+  --when-highlight-color: hsl(286, 66%, 63%);
   
   /* Same colours as highlight +23% lightness */
-  --then-highlight-mouseover-color: hsl(145, 32%, 73%);
-  --now-highlight-mouseover-color: hsl(38, 70%, 75%);
-  --when-highlight-mouseover-color: hsl(274, 46%, 71%);
+  --then-highlight-mouseover-color: hsl(156, 48%, 88%);
+  --now-highlight-mouseover-color:  hsl(42, 80%, 84%);
+  --when-highlight-mouseover-color: hsl(286, 66%, 86%);
   
   /* Same colours as highlight +15% lightness */
-  --then-highlight-selected: hsl(145, 32%, 65%);
-  --now-highlight-selected: hsl(38, 70%, 67%);
-  --when-highlight-selected: hsl(274, 46%, 63%);
+  --then-highlight-selected: hsl(156, 48%, 80%);
+  --now-highlight-selected:  hsl(42, 80%, 76%);
+  --when-highlight-selected: hsl(286, 66%, 78%);
 }
 
 /* Help older browsers deal with common HTML5/CSS3 elements. */
@@ -87,6 +84,22 @@ h3 {
 	font-weight: 500;
 }
 
+#then blockquote {
+	border-color: var(--then-highlight-color);
+}
+
+#now blockquote {
+	border-color: var(--now-highlight-color);
+}
+
+#when blockquote {
+	border-color: var(--when-highlight-color);	
+}
+
+.emphasize {
+	font-style: italic;
+}
+
 #then {
 	background-color: var(--then-background-color);
 }
@@ -97,6 +110,18 @@ h3 {
 
 #when {
 	background-color: var(--when-background-color);
+}
+
+#then a {
+	color: var(--then-background-color);
+}
+
+#now a {
+	color: var(--now-background-color);
+}
+
+#when a {
+	color: var(--when-background-color);
 }
 
 .then-nav {
@@ -161,7 +186,7 @@ nav h1 {
 	z-index: -1;
 }
 
-.subnav ul {
+.subnav ul, .social ul {
 	list-style-type: none;
 }
 
@@ -232,6 +257,42 @@ nav h1 {
 	background-color: var(--when-highlight-selected) !important;
 }
 
+.social {
+	padding: 0;
+	margin: 0;
+	height: 32px;
+}
+
+.social a {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+.social-facebook {
+	background-image: url('../img/social-facebook.svg');
+	background-size: 24px 24px;
+}
+
+.social-facebook:hover {
+	background-image: url('../img/social-facebook-color.svg');
+	background-size: 24px 24px;
+}
+
+.social-twitter {
+	background-image: url('../img/social-twitter.svg');
+	background-size: 40px 40px;
+}
+
+.social-twitter:hover {
+	background-image: url('../img/social-twitter-color.svg');
+	background-size: 40px 40px;
+}
+
 li a {
 	text-decoration: none;
 	color: #fff;
@@ -244,7 +305,7 @@ h1 {
 
 h2 {
 	color: #fff;
-	font-size: 4em;
+	font-size: 2.95em;
 }
 
 article h2 {
@@ -316,6 +377,7 @@ article {
 	border-top: 3px solid;
 	margin: auto;
 	margin-bottom: 15px;
+	clear: both;
 }
 
 #then .content-comments {
@@ -339,7 +401,16 @@ article {
 	width: 200px;
 }
 
-.content-image h5 {
+.content-image img:hover {
+	opacity: 0.8;
+}
+
+.content-video {
+	width: 560px;
+	margin: 0 15px 15px 0;
+}
+
+.content-image h5, .content-video h5 {
 	font-size: 0.8em;
 	font-weight: 100;
 	margin: -11px 0 0 0;
@@ -357,6 +428,54 @@ article {
 .floatRight {
 	float: right;
 	padding: 5px 0 5px 10px;
+}
+
+.center, .footer-img {
+	display: table;
+	margin: auto;
+	padding: 10px;
+	clear: both;
+}
+
+.center img {
+	max-height: 175px;
+	width: auto;
+	height: auto;
+}
+
+.footer-img img {
+	width: auto;
+	height: auto;	
+}
+
+blockquote {
+	width: 300px;
+	background-color: rgba(255, 255, 255, 0.3);
+	font-size:1.5em;
+}
+
+.blockLeft {
+	border-right: 3px solid;
+	margin-left: 0;
+}
+
+.blockRight {
+	border-left: 3px solid;
+	margin-right: 0;
+}
+
+blockquote:before {
+	font-size: 3em;	
+	content:"\201C";
+}
+
+cite {
+	right: 0;	
+}
+
+cite:before {
+	content:"\A\2014";
+	white-space: pre;
 }
 
 .fb-comments {
@@ -392,6 +511,30 @@ footer li {
 .nav-div img {
 	height: 100px;
 	float: left;
+}
+
+#copyright .subnav1, #references .subnav1 {
+	background-color: var(--then-root-color);	
+}
+
+#copyright .subnav1:hover, #references .subnav1:hover {
+	background-color: var(--then-root-mouseover-color)
+}
+
+#copyright .subnav2, #references .subnav2 {
+	background-color: var(--now-root-color);	
+}
+
+#copyright .subnav2:hover, #references .subnav2:hover {
+	background-color: var(--now-root-mouseover-color)
+}
+
+#copyright .subnav3, #references .subnav3 {
+	background-color: var(--when-background-color);	
+}
+
+#copyright .subnav3:hover, #references .subnav3:hover {
+	background-color: var(--when-root-mouseover-color)
 }
 
 .background-svg {
@@ -540,7 +683,7 @@ footer li {
 /* NAVBARS */
 .then-from-now {
 	animation-name: then-from-now;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -549,7 +692,7 @@ footer li {
 
 .then-from-when {
 	animation-name: then-from-when;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -558,7 +701,7 @@ footer li {
 
 .then-from-when2 {
 	animation-name: then-from-when2;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -567,7 +710,7 @@ footer li {
 
 .now-from-then {
 	animation-name: now-from-then;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -576,7 +719,7 @@ footer li {
 
 .now-from-when {
 	animation-name: now-from-when;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -585,7 +728,7 @@ footer li {
 
 .when-from-now {
 	animation-name: when-from-now;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -594,7 +737,7 @@ footer li {
 
 .when-from-then {
 	animation-name: when-from-then;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -603,7 +746,7 @@ footer li {
 
 .when-from-then2 {
 	animation-name: when-from-then2;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -613,7 +756,7 @@ footer li {
 /* BACKGROUND TRANSITIONS */
 .then-from-now-background {
 	animation-name: then-from-now-background;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -622,7 +765,7 @@ footer li {
 
 .then-from-when-background {
 	animation-name: then-from-when-background;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -631,7 +774,7 @@ footer li {
 
 .now-from-then-background {
 	animation-name: now-from-then-background;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -640,7 +783,7 @@ footer li {
 
 .now-from-when-background {
 	animation-name: now-from-when-background;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -649,7 +792,7 @@ footer li {
 
 .when-from-now-background {
 	animation-name: when-from-now-background;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -658,7 +801,7 @@ footer li {
 
 .when-from-then-background {
 	animation-name: when-from-then-background;
-	animation-duration: .8s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
 	animation-direction: reverse;
 	animation-timing-function: ease-in-out;
@@ -666,54 +809,46 @@ footer li {
 }
 
 /* SUBNAV MOVEMENT */
-.subnav-animation {
-	animation-name: subnav;
-	animation-delay: .35s;
-	animation-duration: .8s;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
-	animation-fill-mode: forwards;
-}
-
-.subnav-animation {
-	animation-name: subnav;
-	animation-delay: .55s;
-	animation-duration: .8s;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
-	animation-fill-mode: forwards;
-}
 
 .subnav-animation1 {
 	animation-name: subnav;
-	animation-delay: .35s;
-	animation-duration: .9s;
+	animation-delay: .15s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 
 .subnav-animation2 {
 	animation-name: subnav;
-	animation-delay: .45s;
-	animation-duration: .9s;
+	animation-delay: .35s;
+	animation-duration: .5s;
 	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 }
 
 .subnav-animation3 {
 	animation-name: subnav;
 	animation-delay: .55s;
-	animation-duration: .9s;
+	animation-duration: .5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: ease-out;
+	animation-fill-mode: forwards;
+}
+
+.subnav-disappear {
+	animation-name: subnav-disappear;
+	animation-delay: 0s;
+	animation-duration: 3.35s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in-out;
 	-webkit-animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
+	
 }
 
 /* ANIMATIONS - KEYFRAMES */
@@ -868,5 +1003,122 @@ footer li {
 	
 	100% {
 		left: 150px;
+	}
+}
+
+@keyframes subnav-disappear {
+	0% {
+		transform: scale(1);
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-o-transform: scale(1);
+	}
+	
+	100% {
+		transform: scale(0);
+		-ms-transform: scale(0);
+		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
+		-o-transform: scale(0);
+	}
+}
+
+/* RESPONSIVE DESIGN FOR MOBILE */
+@media only screen and (max-width: 1080px) {
+	p {
+	  font-size: 1.5em;
+	  font-weight: 500;
+	}
+	
+	article {
+	  margin-right: 40px;
+	}
+	
+	@keyframes subnav {
+		0% {
+			left: -150px;
+		}
+		
+		100% {
+			left: 125px;
+		}
+	}
+	
+}
+
+
+/* MODAL STYLING */
+.modal {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 20;
+	display: none;
+}
+
+.modal-close-widget {
+	position:absolute;
+	right:0;
+	top:0;
+	font-size: 128px;
+	
+	padding: 32px 7px;
+	overflow:hidden;
+	text-decoration:none;
+	cursor:pointer;
+	white-space:nowrap;
+}
+
+#then .modal-close-widget {
+	color: var(--then-background-color);
+}
+
+#then .modal-close-widget:hover {
+	color: var(--then-highlight-color);
+}
+
+#now .modal-close-widget {
+	color: var(--now-background-color);
+}
+
+#now .modal-close-widget:hover {
+	color: var(--now-highlight-color);
+}
+
+#when .modal-close-widget {
+	color: var(--when-background-color);
+}
+
+#when .modal-close-widget:hover {
+	color: var(--when-highlight-color);
+}
+
+.modal-content {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding: 110px;
+}
+
+.modal-content img {
+	max-width: 75vw;
+	max-height: 75vh;
+}
+
+.modal-animate-zoom {
+	animation:animatezoom 0.6s
+}
+
+@keyframes animatezoom {
+	from {
+		transform:scale(0)
+	}
+	
+	to {
+		transform:scale(1)
 	}
 }

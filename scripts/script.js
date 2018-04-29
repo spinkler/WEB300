@@ -3,11 +3,11 @@ $(function () {
     var referringHash = decodeURI(window.location.hash);
     var fadeOutTimer = 100;
     var fadeInTimer = 500;
-
+    
     $(window).on('hashchange', function(){
         // On every hash change the render function is called with the new hash.
         // This is how the navigation of our app happens.
-    	
+
     	render(decodeURI(window.location.hash));
     });
     
@@ -101,6 +101,12 @@ $(function () {
         $("#when .subnav1").removeClass("subnav-animation1");
         $("#when .subnav2").removeClass("subnav-animation2");
         $("#when .subnav3").removeClass("subnav-animation3");
+        $("#copyright .subnav1").removeClass("subnav-animation1");
+        $("#copyright .subnav2").removeClass("subnav-animation2");
+        $("#copyright .subnav3").removeClass("subnav-animation3");
+        $("#references .subnav1").removeClass("subnav-animation1");
+        $("#references .subnav2").removeClass("subnav-animation2");
+        $("#references .subnav3").removeClass("subnav-animation3");
         
         
         $("#thensubnav1").removeClass("selected");
@@ -121,7 +127,7 @@ $(function () {
             $("#then .subnav1").addClass("subnav-animation1");
             $("#then .subnav2").addClass("subnav-animation2");
             $("#then .subnav3").addClass("subnav-animation3");
-        	
+            
         	// Apply styles to "then" navigation bar        	
         	$(".then-nav").attr("style",
         			"border-left: 4px solid var(--then-highlight-color);"
@@ -314,13 +320,22 @@ $(function () {
         		$(".when-nav").addClass("when-from-now");
         		$("#when").addClass("when-from-now-background");
         	}
+        } else if (target.endsWith("copyright")) {
+            $("#copyright .subnav1").addClass("subnav-animation1");
+            $("#copyright .subnav2").addClass("subnav-animation2");
+            $("#copyright .subnav3").addClass("subnav-animation3");
+        } else if (target.endsWith("references")) {
+            $("#references .subnav1").addClass("subnav-animation1");
+            $("#references .subnav2").addClass("subnav-animation2");
+            $("#references .subnav3").addClass("subnav-animation3");
         }
 	
         // Update the referring hash when all rendering is complete
         referringHash = target;
+
     }
 
+    
     // Initial render
     render(decodeURI(window.location.hash));
-
 });
